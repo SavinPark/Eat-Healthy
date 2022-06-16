@@ -1,0 +1,70 @@
+.login {
+  height: 90vh;
+  background-color: #fff;
+  
+  #opacity {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+
+    &.close {
+      display: none;
+    }
+
+    .popup-login {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 700px;
+      height: 400px;
+      border-radius: 10px;
+      z-index: 2;
+      background-color: #fff;
+      box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, .3);
+  
+      .kakao_btn {
+        text-align: center;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+  
+      .btn-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 45px;
+        margin: 0 auto;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #FB8E8E;
+        cursor: pointer;
+      }
+    }
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 45vh;
+    left: 5vw;
+    font-size: 90px;
+    font-weight: 500;
+    color: #895858;
+    // border: 1px solid red;
+  }
+  
+
+  .bgImg {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 40vh;
+  }
+
+}

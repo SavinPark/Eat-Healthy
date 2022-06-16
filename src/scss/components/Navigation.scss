@@ -1,0 +1,18 @@
+.nav-area {
+    background-color: #fff;
+    // height: 64px;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+
+        span {
+            color: rgba($color: #000000, $alpha: 0.8)
+        }
+    }
+}

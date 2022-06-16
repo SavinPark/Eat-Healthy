@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Eat-Healthy/static/css/main.0540cd57.css",
+    "main.js": "/Eat-Healthy/static/js/main.a1842bb4.js",
+    "static/js/787.7423e620.chunk.js": "/Eat-Healthy/static/js/787.7423e620.chunk.js",
+    "static/media/home-bg.png": "/Eat-Healthy/static/media/home-bg.e37492b085bb86d04ebb.png",
+    "index.html": "/Eat-Healthy/index.html",
+    "main.0540cd57.css.map": "/Eat-Healthy/static/css/main.0540cd57.css.map",
+    "main.a1842bb4.js.map": "/Eat-Healthy/static/js/main.a1842bb4.js.map",
+    "787.7423e620.chunk.js.map": "/Eat-Healthy/static/js/787.7423e620.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0540cd57.css",
+    "static/js/main.a1842bb4.js"
+  ]
+}

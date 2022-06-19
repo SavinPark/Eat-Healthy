@@ -18,7 +18,7 @@ const KakaoRedirectHandler = () => {
         console.log(res)
         window.localStorage.setItem('TOKEN', res.data.access_token);
         console.log('로그인 완료')
-        document.location.href = '/';
+        document.location.href = 'http://localhost:3000/Eat-Healthy';
     }).catch(function (error) {
         console.log('Error >> ', error);
     });

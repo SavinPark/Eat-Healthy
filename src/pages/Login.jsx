@@ -9,7 +9,7 @@ function Login() {
 
     const closePopup = () => {
         document.querySelector('#opacity').classList.add('close')
-        document.location.href = '/';
+        document.location.href = 'http://localhost:3000/Eat-Healthy';
     }
     return(
         <section className='login'>

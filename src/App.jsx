@@ -6,6 +6,9 @@ import KakaoRedirectHandler from './components/KakaoRedirectHandler';
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import FoodDatabase from "./pages/FoodDatabase";
+import RecipeSearch from "./pages/RecipeSearch";
+import My from "./pages/My";
 import Login from "./pages/Login";
 
 
@@ -16,7 +19,11 @@ function App() {
         <Navigation />
         <div>
           <Routes className="page-area">
-            <Route path="/" exact={true} element={<Home/>}></Route>
+            <Route path="/Eat-Healthy" exact={true} element={<Home/>}></Route>
+            <Route path="/Eat-Healthy/FoodDatabase" exact={true} element={<FoodDatabase/>}></Route>
+            <Route path="/Eat-Healthy" exact={true} element={<Home/>}></Route>
+            <Route path="/Eat-Healthy/RecipeSearch" exact={true} element={<RecipeSearch/>}></Route>
+            <Route path="/Eat-Healthy/My" exact={true} element={<My/>}></Route>
             <Route path="/login" exact={true} element={<Login/>}></Route> 
             <Route path="/oauth/callback/kakao" exact={true} element={<KakaoRedirectHandler/>}></Route>
           </Routes>

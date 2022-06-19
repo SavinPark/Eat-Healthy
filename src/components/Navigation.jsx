@@ -16,17 +16,20 @@ function Navigation() {
         <nav className="nav-area">
             <ul>
                 <li>
-                    <Link to='/'><span>레시피</span></Link>
+                    <Link to='/Eat-Healthy/RecipeSearch'><span>레시피</span></Link>
                 </li>
                 <li>
-                    <Link to='/'><span>영양정보</span></Link>
+                    <Link to='/Eat-Healthy/FoodDatabase'><span>푸트 DB</span></Link>
                 </li>
                 <li>
-                    <Link to='/'><span>메뉴</span></Link>
+                    <Link to='/Eat-Healthy'><span>영양정보</span></Link>
+                </li>
+                <li>
+                    <Link to='/Eat-Healthy'><span>메뉴</span></Link>
                 </li>
                 { window.localStorage.getItem("TOKEN") && (
                     <li>
-                        <Link to='/'><span>MY</span></Link>
+                        <Link to='/Eat-Healthy/My'><span>MY</span></Link>
                     </li>
                 )}
                 { !window.localStorage.getItem("TOKEN") &&  (

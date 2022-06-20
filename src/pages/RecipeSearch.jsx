@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import EdamamBadge from '../images/Edamam_Badge.svg';
+
 function RecipeSearch() {
     const Q = 'chicken';
     // env 적용하면 X , 노출 시키면 O
@@ -23,6 +25,8 @@ function RecipeSearch() {
     return(
         <section>
             <p>Recipe 검색</p>
+            <div id="edamam-badge" data-color="badge"></div>
+            <img src={EdamamBadge} alt='Edamam Badge'/>
         </section>
     );
 }

@@ -47,6 +47,9 @@ function RecipeSearch() {
                 <li className='recipe-item'>
                     <RecipeCard />
                 </li>
+                <li className='recipe-item'>
+                    <RecipeCard />
+                </li>
             </ul>
 
             {/* <div id="edamam-badge" data-color="badge"></div>

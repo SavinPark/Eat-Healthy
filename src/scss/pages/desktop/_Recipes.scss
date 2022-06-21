@@ -13,7 +13,7 @@
             width: 800px;
             height: 50px;
             padding: 0 25px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             // border: 1px solid red;
             border: 2px solid rgba(0, 0, 0, .3);
             border-radius: 25px;
@@ -51,17 +51,13 @@
             flex-direction: column;
             align-items: center;
             width: 840px;
-            height: 80vh;
             padding: 5px 0;
-            overflow: auto;
-            // border: 1px solid orange;
+            // overflow: auto;
+            border: 1px solid orange;
             
             .recipe-item {
-                margin-top: 20px;
+                margin-bottom: 20px;
                 // border: 1px dashed green;
-                &:first-child {
-                    margin-top: 0;
-                }
             }
         }
     }

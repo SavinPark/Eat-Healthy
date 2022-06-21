@@ -7,24 +7,18 @@
         position: relative;
         display: flex;
         font-family: 'Nanum Gothic Coding', monospace;
-
+        
         main {
             position: absolute;
             top: 0;
-            bottom: 0;
             right: 0;
             left: 120px;
-            flex: 1;
-            height: 100vh;
             background: #fff;
-            border-radius: 30px 0 0 30px;
-            box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.25);
-            // border: 1px solid red;
         }
         
         section {
-            margin-top: 80px;
-            border: 1px dotted orange;
+            margin: 50px auto;
+            // margin-top: 50px;
         }
     }
 

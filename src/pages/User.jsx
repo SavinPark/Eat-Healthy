@@ -1,11 +1,11 @@
 import React from "react";
 
-function My() {
+function User() {
     return (
-        <section>
+        <section className='page-user'>
             <p>MY Information</p>
         </section>
     );
 }
 
-export default My;
+export default User;

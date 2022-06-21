@@ -17,7 +17,7 @@ function NutritionAnalysis() {
     //     console.error(error)
     // })
     return (
-        <section>
+        <section  className='page-nutrition'>
             <p>Nutrition Analysis</p>
         </section>
     );

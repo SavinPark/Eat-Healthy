@@ -18,23 +18,30 @@ function Navigation() {
         window.localStorage.clear();
     }
 
+    // const onActive = (event) => {
+    //     document.querySelector('.active').classList.remove('active');
+    //     // console.log(event.target.getAttribute('id'))
+    //     // event.target.classList.add('active');
+    // }
+
+
     return(
         <nav>
             <ul>
                 <li>
-                    <Link to='/Eat-Healthy'><div className="menu-btn active"><img className="menu-icon home" src={HomeIcon} alt='Home' /></div></Link>
+                    <Link to='/Eat-Healthy'><div id='home' className="menu-btn active"><img className="menu-icon" src={HomeIcon} alt='Home' /></div></Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/User'><div className="menu-btn"><img className="menu-icon user" src={UserIcon} alt='User' /></div></Link>
+                    <Link to='/Eat-Healthy/User'><div id='user' className="menu-btn"><img className="menu-icon" src={UserIcon} alt='User' /></div></Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/FoodDatabase'><div className="menu-btn"><img className="menu-icon foodDB" src={FoodIcon} alt='Food Database' /></div></Link>
+                    <Link to='/Eat-Healthy/FoodDatabase'><div id='foodDB' className="menu-btn"><img className="menu-icon" src={FoodIcon} alt='Food Database' /></div></Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/NutritionAnalysis'><div className="menu-btn"><img className="menu-icon nutrition" src={NutritionIcon} alt='Nutrition Analysis' /></div></Link>
+                    <Link to='/Eat-Healthy/NutritionAnalysis'><div id='nutrition' className="menu-btn"><img className="menu-icon" src={NutritionIcon} alt='Nutrition Analysis' /></div></Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/RecipeSearch'><div className="menu-btn"><img className="menu-icon recipes" src={RecipeIcon} alt='Recipe Search' /></div></Link>
+                    <Link to='/Eat-Healthy/RecipeSearch'><div id='recipes' className="menu-btn"><img className="menu-icon" src={RecipeIcon} alt='Recipe Search' /></div></Link>
                 </li>
                 {/* <li>
                     <Link to='/Eat-Healthy'><div className="menu-btn"></div></Link>

@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import FoodDatabase from "./pages/FoodDatabase";
 import NutritionAnalysis from "./pages/NutritionAnalysis";
 import RecipeSearch from "./pages/RecipeSearch";
-import My from "./pages/My";
+import User from "./pages/User";
 import Login from "./pages/Login";
 
 
@@ -17,11 +17,11 @@ function App() {
 
   return (
     <div className="App">
-        <Navigation className=''/>
-        <main className=''>
+        <Navigation />
+        <main>
           <Routes>
             <Route path="/Eat-Healthy" exact={true} element={<Home/>}></Route>
-            <Route path="/Eat-Healthy/My" exact={true} element={<My/>}></Route>
+            <Route path="/Eat-Healthy/User" exact={true} element={<User/>}></Route>
             <Route path="/Eat-Healthy/FoodDatabase" exact={true} element={<FoodDatabase/>}></Route>
             <Route path="/Eat-Healthy/NutritionAnalysis" exact={true} element={<NutritionAnalysis/>}></Route>
             <Route path="/Eat-Healthy/RecipeSearch" exact={true} element={<RecipeSearch/>}></Route>

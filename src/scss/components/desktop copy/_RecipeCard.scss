@@ -1,0 +1,81 @@
+@include desktop() {
+    .recipe-card {
+        display: flex;
+        justify-content: space-between;
+        width: 1000px;
+        height: 240px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .25);
+
+        .thumbnail {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, .1);
+            // border: 1px dashed green;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 720px;
+            height: 200px;
+            padding: 5px 0;
+
+            // border: 1px dashed green;
+            h3 {
+                font-size: 30px;
+                font-weight: 600;
+            }
+
+            .cook-info {
+                display: flex;
+                // margin: 16px 0;
+                align-items: center;
+                font-size: 18px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 30px;
+
+                    span {
+                        margin-left: 8px;
+                    }
+                }
+            }
+
+            p {
+                width: 700px;
+                font-size: 18px;
+                overflow: hidden;
+                white-space: normal;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                // border: 1px dashed green;
+            }
+
+            .tag-list {
+                display: flex;
+
+                // margin-top: 20px;
+                // border: 1px dashed green;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 20px;
+                    padding: 0 8px;
+                    margin-right: 16px;
+                    font-size: 16px;
+                    color: rgba(0, 0, 0, .8);
+                    background-color: rgba(0, 0, 0, .06);
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}

@@ -20,7 +20,7 @@ function FoodDatabase() {
         console.error(error)
     })
     return (
-        <section>
+        <section className='page-fooddb'>
             <p>Food Database</p>
         </section>
     );

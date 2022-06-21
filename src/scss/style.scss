@@ -1,11 +1,19 @@
 // base
 @import './base/reset';
 
+// abstracts
+@import './abstracts/mixins';
+
 // components
-@import './components/Navigation.scss';
-// @import './components/Footer.scss';
+@import './components/desktop/Navigation';
+@import './components/desktop/RecipeCard';
 
 // pages
-@import './pages/App.scss';
-// @import './pages/Home.scss';
+@import './pages/desktop/App';
+@import './pages/desktop/Home';
+@import './pages/desktop/Recipes';
 // @import './pages/Login.scss';
+
+@import './pages/tablet/App';
+
+@import './pages/mobile/App';

@@ -1,0 +1,68 @@
+@include desktop() {
+
+    .page-recipes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .search {
+            display: flex;
+            justify-content: center;
+            // align-items: center;
+            // width: 840px;
+            width: 800px;
+            height: 50px;
+            padding: 0 25px;
+            margin-bottom: 50px;
+            // border: 1px solid red;
+            border: 2px solid rgba(0, 0, 0, .3);
+            border-radius: 25px;
+
+            input {
+                flex: 1;
+                height: 46px;
+                font-size: 20px;
+                border: none;
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 46px;
+                font-size: 30px;
+                color: rgba(0, 0, 0, .7);
+                outline: none;
+                border: none;
+                background-color: #fff;
+                cursor: pointer;
+                &:hover {
+                    color: rgba(0, 0, 0, 1.0);
+                }
+            }
+        }
+        
+        .recipe-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 840px;
+            height: 80vh;
+            padding: 5px 0;
+            overflow: auto;
+            // border: 1px solid orange;
+            
+            .recipe-item {
+                margin-top: 20px;
+                // border: 1px dashed green;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}

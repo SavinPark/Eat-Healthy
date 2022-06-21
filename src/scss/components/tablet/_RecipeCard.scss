@@ -1,0 +1,76 @@
+@include tablet() {
+    .recipe-card {
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        // width: 800px;
+        // height: 240px;
+        // padding: 0 20px;
+        // background: #fff;
+        // border-radius: 10px;
+        // box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .25);
+
+
+        // .thumbnail {
+        //     width: 200px;
+        //     height: 200px;
+        //     background-color: rgba(0, 0, 0, .1);
+        // }
+
+        // .details {
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: space-between;
+        //     width: 540px;
+        //     height: 200px;
+        //     padding: 10px 0;
+        //     // border: 1px dashed hotpink;
+            
+        //     h3 {
+        //         font-size: 24px;
+        //         font-weight: 600;
+        //     }
+            
+        //     .cook-info {
+        //         display: flex;
+        //         font-size: 18px;
+        //         // border: 1px dashed red;
+        //         li {
+        //             display: flex;
+        //             align-items: center;
+        //             margin-right: 20px;
+        //             span {
+        //                 margin-left: 8px;
+        //             }
+        //         }
+        //     }
+
+        //     p {
+        //         font-size: 20px;
+        //         overflow: hidden;
+        //         white-space: normal;
+        //         display: -webkit-box;
+        //         -webkit-line-clamp: 3;
+        //         -webkit-box-orient: vertical;
+        //         // border: 1px dashed green;
+        //     }
+
+        //     .tag-list {
+        //         display: flex;
+        //         // border: 1px dashed green;
+        //         li {
+        //             display: flex;
+        //             justify-content: center;
+        //             align-items: center;
+        //             height: 20px;
+        //             padding: 0 8px;
+        //             margin-right: 10px;
+        //             font-size: 16px;
+        //             color: rgba(0, 0, 0, .8);
+        //             background-color: rgba(0, 0, 0, .06);
+        //             border-radius: 10px;
+        //         }
+        //     }
+        // }
+    }
+}

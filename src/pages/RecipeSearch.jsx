@@ -27,6 +27,14 @@ function RecipeSearch() {
     //     console.error(error)
     // })
 
+    const onPopup = () => {
+        console.log('Popup Card!');
+        // 함수 말고 Router로 연결...?
+        // 팝업 카드 방법
+        // [1] 함수 클릭하면 props 전달해서 팝업카드 렌더링
+        // [2] 카드에 Link 연결해서 여기서 Router로 보여주기
+    }
+
     return(
         <section className="page-recipes">
             {/* <p>Recipe 검색</p> */}
@@ -35,8 +43,9 @@ function RecipeSearch() {
                 <button><GoSearch/></button>
             </div>
             <ul className='recipe-list'>
-                <li className='recipe-item'>
+                <li className='recipe-item' onClick={onPopup}>
                     <RecipeCard />
+                    {/* <Link to=''><RecipeCard /></Link> */}
                 </li>
                 <li className='recipe-item'>
                     <RecipeCard />

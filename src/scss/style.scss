@@ -9,8 +9,8 @@
 @import './components/desktop/RecipeCard';
 @import './components/desktop/RecipePopup';
 
-// @import './components/tablet/Navigation';
-// @import './components/tablet/RecipeCard';
+@import './components/tablet/Navigation';
+@import './components/tablet/RecipeCard';
 
 // @import './components/mobile/Navigation';
 // @import './components/mobile/RecipeCard';
@@ -21,9 +21,9 @@
 @import './pages/desktop/Recipes';
 // @import './pages/Login.scss';
 
-// @import './pages/tablet/App';
+@import './pages/tablet/App';
+@import './pages/tablet/Recipes';
 // @import './pages/tablet/Home';
-// @import './pages/tablet/Recipes';
 
 // @import './pages/mobile/App';
 // @import './pages/mobile/Home';

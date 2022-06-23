@@ -97,9 +97,9 @@ function RecipeSearch() {
             </div>
             <div className="contents">
                 <ul className='recipe-list' id='recipe-list'>
-                    {/* <li className='recipe-item' onClick={onPopup}>
+                    <li className='recipe-item' onClick={onPopup}>
                         <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li> */}
+                    </li>
                     {/* <Link to=''><RecipeCard /></Link> */}
                 </ul>
                 <div className='filter'>
@@ -166,11 +166,11 @@ function RecipeSearch() {
                             <h3>Calories</h3>
                             <div>
                                 <label htmlFor="min">Min</label>
-                                <input id='min_kcal' name='min' type='number' placeholder='Please enter a positive number'/>
+                                <input id='min_kcal' name='min' type='number' placeholder='Positive number'/>
                             </div>
                             <div>
                                 <label htmlFor='max'>Max</label>
-                                <input id='max_kcal' name='max' type='number' placeholder='Please enter a positive number'/>
+                                <input id='max_kcal' name='max' type='number' placeholder='Positive number'/>
                             </div>
                             {/* <input type='range' id="calories" name="calories"  min="0" max="1000" step="100" /> */}
                         </li>
@@ -185,9 +185,6 @@ function RecipeSearch() {
                                 <option value='low-fat'>low-fat</option>
                                 <option value='low-sodium'>low-sodium</option>
                             </select>
-                            {/* <ul className='tag-list'>
-                                    <li className='tag-item active'></li>
-                            </ul> */}
                         </li>
                         <li className='filter-item'>
                             <h3>Health</h3>
@@ -230,9 +227,6 @@ function RecipeSearch() {
                                 <option value='vegetarian'>vegetarian</option>
                                 <option value='wheat-free'>wheat-free</option>
                             </select>
-                            {/* <ul className='tag-list'>
-                                <li className='tag-item'></li>
-                            </ul> */}
                         </li>
                     </ul>
                 </div>

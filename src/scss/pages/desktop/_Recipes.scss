@@ -58,16 +58,13 @@
                 flex-direction: column;
                 align-items: center;
                 width: 850px;
-                // width: 500px;
                 height: 80vh;
                 padding-top: 10px;
                 overflow: auto;
-                // overflow-y: scroll;
                 background-color: #fff;
 
                 .recipe-item {
                     margin-bottom: 10px;
-                    // border: 1px dashed green;
                 }
                 // Scroll bar
                 &::-webkit-scrollbar {
@@ -88,16 +85,15 @@
 
             .filter {
                 width: 300px;
-                // width: 290px;
                 height: 80vh;
-                padding: 10px;
+                padding: 20px;
                 overflow: auto;
                 color: #42493A;
                 background-color: #fff;
                 h2 {
                     font-size: 20px;
-                    font-weight: 600;
-                    margin-bottom: 24px;
+                    font-weight: 9700;
+                    margin-bottom: 40px;
                 }
                 // Scroll bar
                 &::-webkit-scrollbar {
@@ -116,32 +112,29 @@
                 }
                 .filter-list {
                     .filter-item {
-                        margin-bottom: 20px;
+                        margin-bottom: 30px;
                         h3 {
                             font-size: 18px;
                             font-weight: 500;
-                            margin-bottom: 5px;
+                            margin-bottom: 10px;
                         }
-                        .tag-list {
-                            display: flex;
-                            flex-wrap: wrap;
-                            .tag-item {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
+                        select {
+                            height: 24px;
+                            padding: 0 10px ;
+                            border-radius: 12px;
+                            border: 1px solid rgba(0, 0, 0, 0.2);
+                        }
+                        & > div {
+                            margin-bottom: 10px;
+                            label {
+                                font-weight: 500;
+                                margin: 0 10px;
+                            }
+                            input {
                                 height: 24px;
-                                padding: 2px 8px;
-                                margin: 0 4px 6px 0;
+                                padding: 0 10px;
                                 border-radius: 12px;
-                                color: #5A5333;
-                                background-color: rgba($color: #9999CC, $alpha: 0.3);
-                                cursor: pointer;
-                                // border: 1px solid red;
-                                
-                                &.active {
-                                    color: #fff;
-                                    background-color: #9999CC;
-                                }
+                                border: 1px solid rgba(0, 0, 0, 0.2);
                             }
                         }
                     }

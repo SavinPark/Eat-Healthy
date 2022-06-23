@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+import Cutlery from '../images/icons/cutlery.png';
 import HomeIcon from '../images/icons/home.png';
 import UserIcon from '../images/icons/user.png';
 import FoodIcon from '../images/icons/healthy-food.png';
@@ -27,12 +28,13 @@ function Navigation() {
 
     return(
         <nav>
+            <img className="nav-logo" src={Cutlery} alt='Logo' />
             <ul>
                 <li>
-                    <Link to='/Eat-Healthy'><div id='home' className="menu-btn active"><img className="menu-icon" src={HomeIcon} alt='Home' /></div></Link>
+                    <Link to='/Eat-Healthy'><div id='home' className="menu-btn active"><img className="menu-icon home" src={HomeIcon} alt='Home' /></div></Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/User'><div id='user' className="menu-btn"><img className="menu-icon" src={UserIcon} alt='User' /></div></Link>
+                    <Link to='/Eat-Healthy/User'><div id='user' className="menu-btn"><img className="menu-icon user" src={UserIcon} alt='User' /></div></Link>
                 </li>
                 <li>
                     <Link to='/Eat-Healthy/FoodDatabase'><div id='foodDB' className="menu-btn"><img className="menu-icon" src={FoodIcon} alt='Food Database' /></div></Link>

@@ -3,6 +3,7 @@ import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 
 import { GoSearch } from "react-icons/go";
+import { IoClose } from "react-icons/io5";
 import EdamamBadge from '../images/Edamam_Badge.svg';
 
 function RecipeSearch() {
@@ -42,24 +43,151 @@ function RecipeSearch() {
                 <input placeholder="Search"/>
                 <button><GoSearch/></button>
             </div>
-            <ul className='recipe-list'>
-                <li className='recipe-item' onClick={onPopup}>
-                    <RecipeCard />
-                    {/* <Link to=''><RecipeCard /></Link> */}
-                </li>
-                <li className='recipe-item'>
-                    <RecipeCard />
-                </li>
-                <li className='recipe-item'>
-                    <RecipeCard />
-                </li>
-                <li className='recipe-item'>
-                    <RecipeCard />
-                </li>
-                <li className='recipe-item'>
-                    <RecipeCard />
-                </li>
-            </ul>
+            <div className="contents">
+                <ul className='recipe-list'>
+                    <li className='recipe-item' onClick={onPopup}>
+                        {/* <RecipeCard /> */}
+                        {/*
+                        <Link to=''>
+                        <RecipeCard />
+                        </Link> */}
+                        RecipeCard
+                    </li>
+                    <li className='recipe-item'>
+                    RecipeCard
+                        {/*
+                        <RecipeCard /> */}
+                    </li>
+                    <li className='recipe-item'>
+                    RecipeCard
+                        {/*
+                        <RecipeCard /> */}
+                    </li>
+                    <li className='recipe-item'>
+                        {/*
+                        <RecipeCard /> */}
+                    </li>
+                    <li className='recipe-item'>
+                        {/*
+                        <RecipeCard /> */}
+                    </li>
+                </ul>
+                <div className='filter'>
+                    <h2>Filter</h2>
+                    <ul className='filter-list'>
+                        <li className='filter-item'>
+                            <h3>Meal Type</h3>
+                            <select>
+                                <option>Breakfast</option>
+                                <option>Lunch</option>
+                                <option>Dinner</option>
+                                <option>Snack</option>
+                                <option>Teatime</option>
+                            </select>
+                        </li>
+                        <li className='filter-item'>
+                        <h3>Cusine Type</h3>
+                            <select>
+                                <option>American</option>
+                                <option>Asian</option>
+                                <option>British</option>
+                                <option>Caribbean</option>
+                                <option>Central Europe</option>
+                                <option>Chinese</option>
+                                <option>Eastern Europe</option>
+                                <option>French</option>
+                                <option>Indian</option>
+                                <option>Italian</option>
+                                <option>Japanese</option>
+                                <option>Kosher</option>
+                                <option>Mediterranean</option>
+                                <option>Maxican</option>
+                                <option>Middle Eastern</option>
+                                <option>Nordic</option>
+                                <option>South American</option>
+                                <option>South East Asian</option>
+                            </select>
+                        </li>
+                        <li className='filter-item'>
+                        <h3>Dish Type</h3>
+                            <select>
+                                <option>Biscuits and cookies</option>
+                                <option>Bread</option>
+                                <option>Cereals</option>
+                                <option>Condiments and sauces</option>
+                                <option>Desserts</option>
+                                <option>Drinks</option>
+                                <option>Main course</option>
+                                <option>Pancake</option>
+                                <option>Preps</option>
+                                <option>Preserve</option>
+                                <option>Salad</option>
+                                <option>Sandwiches</option>
+                                <option>Side dish</option>
+                                <option>Soup</option>
+                                <option>Starter</option>
+                                <option>Sweets</option>
+                            </select>
+                        </li>
+                        <li className='filter-item'>
+                            <h3>Calories</h3>
+                            <input type='range' id="calories" name="calories"  min="0" max="1000" step="50" />
+                        </li>
+                        <li className='filter-item'>
+                            <h3>Health</h3>
+                            <ul className='tag-list'>
+                            <li className='tag-item'>alcohol-cocktail</li>
+                            <li className='tag-item'>alcohol-free</li>
+                            <li className='tag-item'>celery-free</li>
+                            <li className='tag-item'>crustacean-free</li>
+                            <li className='tag-item'>dairy-free</li>
+                            <li className='tag-item'>DASH</li>
+                            <li className='tag-item'>egg-free</li>
+                            <li className='tag-item'>fish-free</li>
+                            <li className='tag-item'>fodmap-free</li>
+                            <li className='tag-item'>gluten-free</li>
+                            <li className='tag-item'>immuno-supportive</li>
+                            <li className='tag-item'>keto-friendly</li>
+                            <li className='tag-item'>kidney-friendly</li>
+                            <li className='tag-item'>kosher</li>
+                            <li className='tag-item'>low-fat-abs</li>
+                            <li className='tag-item'>low-potassium</li>
+                            <li className='tag-item'>low-sugar</li>
+                            <li className='tag-item'>lupine-free</li>
+                            <li className='tag-item'>Mediterranean</li>
+                            <li className='tag-item'>mollusk-free</li>
+                            <li className='tag-item'>mustard-free</li>
+                            <li className='tag-item'>no-oil-added</li>
+                            <li className='tag-item'>paleo</li>
+                            <li className='tag-item'>peanut-free</li>
+                            <li className='tag-item'>pescatarian</li>
+                            <li className='tag-item'>pork-free</li>
+                            <li className='tag-item'>red-meat-free</li>
+                            <li className='tag-item'>sesame-free</li>
+                            <li className='tag-item'>shellfish-free</li>
+                            <li className='tag-item'>soy-free</li>
+                            <li className='tag-item'>sugar-conscious</li>
+                            <li className='tag-item'>sulfite-free</li>
+                            <li className='tag-item'>tree-nut-free</li>
+                            <li className='tag-item'>vegan</li>
+                            <li className='tag-item'>vegetarian</li>
+                            <li className='tag-item'>wheat-free</li>
+                            </ul>
+                        </li>
+                        <li className='filter-item'>
+                            <h3>Diet</h3>
+                            <ul className='tag-list'>
+                                <li className='tag-item'>balanced</li>
+                                <li className='tag-item'>high-fiber</li>
+                                <li className='tag-item'>high-protein</li>
+                                <li className='tag-item'>low-card</li>
+                                <li className='tag-item'>low-fat</li>
+                                <li className='tag-item'>low-sodium</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
             {/* <div id="edamam-badge" data-color="badge"></div>
             <img src={EdamamBadge} alt='Edamam Badge'/> */}

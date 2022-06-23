@@ -4,19 +4,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        border: 1px solid red;
 
         .search {
             display: flex;
             justify-content: center;
-            // align-items: center;
-            // width: 840px;
-            width: 800px;
+            width: 900px;
             height: 50px;
             padding: 0 25px;
-            margin-bottom: 40px;
-            // border: 1px solid red;
-            border: 2px solid rgba(0, 0, 0, .3);
+            background-color: #fff;
             border-radius: 25px;
+            border: 2px solid rgba(0, 0, 0, .3);
 
             input {
                 flex: 1;
@@ -45,19 +43,68 @@
                 }
             }
         }
-        
-        .recipe-list {
+
+        .contents {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 840px;
-            padding: 5px 0;
-            // overflow: auto;
-            // border: 1px solid orange;
-            
-            .recipe-item {
-                margin-bottom: 20px;
-                // border: 1px dashed green;
+            justify-content: space-between;
+            width: 860px;
+            border: 1px solid orange;
+
+            .recipe-list {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 600px;
+                height: 80vh;
+                padding: 5px 0;
+                overflow: auto;
+                // overflow-y: scroll;
+                background-color: #fff;
+
+                .recipe-item {
+                    margin-bottom: 10px;
+                    // border: 1px dashed green;
+                }
+            }
+
+            .filter {
+                width: 240px;
+                height: 80vh;
+                padding: 10px;
+                overflow: auto;
+                color: #42493A;
+                background-color: #fff;
+                h2 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-bottom: 24px;
+                }
+                .filter-list {
+                    .filter-item {
+                        margin-bottom: 20px;
+                        h3 {
+                            font-size: 18px;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                        }
+                        .tag-list {
+                            display: flex;
+                            flex-wrap: wrap;
+                            .tag-item {
+                                // display: flex;
+                                // justify-content: space-between;
+                                height: 24px;
+                                padding: 2px 8px;
+                                margin: 0 4px 6px 0;
+                                border-radius: 12px;
+                                color: #fff;
+                                // background-color: #A6AE9C;
+                                background-color: #9999CC;
+                                border: 1px solid red;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

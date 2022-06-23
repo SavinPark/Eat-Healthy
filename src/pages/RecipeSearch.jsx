@@ -1,4 +1,6 @@
 import React from "react";
+import {useEffect, useState} from 'react';
+import $ from 'jquery';
 import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 
@@ -7,26 +9,77 @@ import { IoClose } from "react-icons/io5";
 import EdamamBadge from '../images/Edamam_Badge.svg';
 
 function RecipeSearch() {
-    const Q = 'chicken';
-    // env 적용하면 X , 노출 시키면 O
-    // const APP_ID =  process.env.REACT_APP_EDAMAM_API_ID_RECIPE;
-    // const APP_KEY =  process.env.REACT_APP_EDAMAM_API_KEY_RECIPE;
-    const APP_ID =  'd1649c03';
-    const APP_KEY =  '27d7dd8154b5984a64997ccadf516b13';
-    // axios.get(`https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${APP_KEY}&q=${Q}`,{
-    //     headers: {
-    //         'Access-Control-Allow-Origin': '*'
-    //     }
-    // })
-    // .then(response => {
-    //     console.log(response)
-    //     // response.data.hits.forEach(ele => {
-    //     //   //  ...
-    //     // })
-    // })
-    // .catch(error => {
-    //     console.error(error)
-    // })
+
+    const getURL = () => {
+        // env 적용하면 X , 노출 시키면 O
+        // const APP_ID =  'd1649c03';
+        // const APP_KEY =  '27d7dd8154b5984a64997ccadf516b13';
+        const APP_ID = process.env.REACT_APP_EDAMAM_API_ID_RECIPE;
+        const APP_KEY = process.env.REACT_APP_EDAMAM_API_KEY_RECIPE;
+
+        let Q = $('#keyword').val();
+        let URL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${APP_KEY}&q=${Q}`
+
+        if($('#meal-type').val() !== 'None') {
+            URL += `&mealType=${$('#meal-type').val()}`
+        }
+        if($('#cuisine-type').val() !== 'None') {
+            URL += `&cuisineType=${$('#cuisine-type').val()}`
+        }
+        if($('#dish-type').val() !== 'None') {
+            URL += `&dishType=${$('#dish-type').val()}`
+        }
+        if($('#diet').val() !== 'None') {
+            URL += `&diet=${$('#diet').val()}`
+        }
+        if($('#health').val() !== 'None') {
+            URL += `&health=${$('#health').val()}`
+        }
+        if($('#min_kcal').val() !== '' && $('#max_kcal').val() !== '') {
+            URL += `&calories=${$('#min_kcal').val()}-${$('#max_kcal').val()}`
+        } else if ($('#min_kcal').val() === '' && $('#max_kcal').val() !== '') {
+            URL += `&calories=${$('#max_kcal').val()}`
+        } else if ($('#min_kcal').val() !== '' && $('#max_kcal').val() === '') {
+            URL += `&calories=${$('#min_kcal').val()}+`
+        }
+        return URL;
+    }
+
+    let html = '';
+    const renderRecipeCard = (label, time, cuisine, kcal) => {
+        // $('#recipe-list')[0].innerHTML = html;
+        html += `<li className='recipe-item'>
+                    ${label} ${time} ${cuisine} ${kcal}
+                </li>`
+        console.log(label, time, cuisine, kcal)
+    }
+
+    const onSearch = () => {
+        let url = getURL();
+        console.log(url);
+        axios.get(url, {
+            // headers: {
+            //     'Access-Control-Allow-Origin': '*'
+            // }
+        })
+        .then(response => {
+            console.log(response)
+            response.data.hits.forEach(ele => {
+                renderRecipeCard(ele.recipe.label, 60, ele.recipe.cuisineType[0], ele.recipe.calories)
+            })
+            $('#recipe-list')[0].innerHTML = html;
+        })
+        .catch(error => {
+            alert('Make sure your query is correct.');
+            console.error(error)
+        })
+
+    }
+    useEffect(()=>{
+        $('.search').keypress((event) => {
+            if (event.keyCode === 13) onSearch();
+        });
+    })
 
     const onPopup = () => {
         console.log('Popup Card!');
@@ -38,142 +91,148 @@ function RecipeSearch() {
 
     return(
         <section className="page-recipes">
-            {/* <p>Recipe 검색</p> */}
             <div className='search'>
-                <input placeholder="Search"/>
-                <button><GoSearch/></button>
+                <input id='keyword' placeholder="Search"/>
+                <button onClick={onSearch}><GoSearch/></button>
             </div>
             <div className="contents">
-                <ul className='recipe-list'>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard />
-                        {/*
-                        <Link to=''>
-                        <RecipeCard />
-                        </Link> */}
-                    </li>
-                    <li className='recipe-item'>                        
-                        <RecipeCard />
-                    </li>
-                    <li className='recipe-item'>                        
-                        <RecipeCard />
-                    </li>
-                    <li className='recipe-item'>                        
-                        <RecipeCard />
-                    </li>
+                <ul className='recipe-list' id='recipe-list'>
+                    {/* <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li> */}
+                    {/* <Link to=''><RecipeCard /></Link> */}
                 </ul>
                 <div className='filter'>
                     <h2>Filter</h2>
                     <ul className='filter-list'>
                         <li className='filter-item'>
                             <h3>Meal Type</h3>
-                            <select>
-                                <option>Breakfast</option>
-                                <option>Lunch</option>
-                                <option>Dinner</option>
-                                <option>Snack</option>
-                                <option>Teatime</option>
+                            <select id='meal-type' defaultValue='None'>
+                                <option value='None'>None</option>
+                                <option value='Breakfast'>Breakfast</option>
+                                <option value='Lunch'>Lunch</option>
+                                <option value='Dinner'>Dinner</option>
+                                <option value='Snack'>Snack</option>
+                                <option value='Teatime'>Teatime</option>
                             </select>
                         </li>
                         <li className='filter-item'>
-                        <h3>Cusine Type</h3>
-                            <select>
-                                <option>American</option>
-                                <option>Asian</option>
-                                <option>British</option>
-                                <option>Caribbean</option>
-                                <option>Central Europe</option>
-                                <option>Chinese</option>
-                                <option>Eastern Europe</option>
-                                <option>French</option>
-                                <option>Indian</option>
-                                <option>Italian</option>
-                                <option>Japanese</option>
-                                <option>Kosher</option>
-                                <option>Mediterranean</option>
-                                <option>Maxican</option>
-                                <option>Middle Eastern</option>
-                                <option>Nordic</option>
-                                <option>South American</option>
-                                <option>South East Asian</option>
+                        <h3>Cuisine Type</h3>
+                            <select id='cuisine-type' defaultValue='None'>
+                                <option value='None'>None</option>
+                                <option value='American'>American</option>
+                                <option value='Asian'>Asian</option>
+                                <option value='British'>British</option>
+                                <option value='Caribbean'>Caribbean</option>
+                                <option value='Central%20Europe'>Central Europe</option>
+                                <option value='Chinese'>Chinese</option>
+                                <option value='Eastern%20Europe'>Eastern Europe</option>
+                                <option value='French'>French</option>
+                                <option value='Indian'>Indian</option>
+                                <option value='Italian'>Italian</option>
+                                <option value='Japanese'>Japanese</option>
+                                <option value='Kosher'>Kosher</option>
+                                <option value='Mediterranean'>Mediterranean</option>
+                                <option value='Maxican'>Maxican</option>
+                                <option value='Middle%20Eastern'>Middle Eastern</option>
+                                <option value='Nordic'>Nordic</option>
+                                <option value='South%20American'>South American</option>
+                                <option value='South%20East%20Asian'>South East Asian</option>
                             </select>
                         </li>
                         <li className='filter-item'>
                         <h3>Dish Type</h3>
-                            <select>
-                                <option>Biscuits and cookies</option>
-                                <option>Bread</option>
-                                <option>Cereals</option>
-                                <option>Condiments and sauces</option>
-                                <option>Desserts</option>
-                                <option>Drinks</option>
-                                <option>Main course</option>
-                                <option>Pancake</option>
-                                <option>Preps</option>
-                                <option>Preserve</option>
-                                <option>Salad</option>
-                                <option>Sandwiches</option>
-                                <option>Side dish</option>
-                                <option>Soup</option>
-                                <option>Starter</option>
-                                <option>Sweets</option>
+                            <select id='dish-type' defaultValue='None'>
+                                <option value='None'>None</option>
+                                <option value='Biscuits%20and%20cookies'>Biscuits and cookies</option>
+                                <option value='Bread'>Bread</option>
+                                <option value='Cereals'>Cereals</option>
+                                <option value='Condiments%20and%20sauces'>Condiments and sauces</option>
+                                <option value='Desserts'>Desserts</option>
+                                <option value='Drinks'>Drinks</option>
+                                <option value='Main%20course'>Main course</option>
+                                <option value='Pancake'>Pancake</option>
+                                <option value='Preps'>Preps</option>
+                                <option value='Preserve'>Preserve</option>
+                                <option value='Salad'>Salad</option>
+                                <option value='Sandwiches'>Sandwiches</option>
+                                <option value='Side%20dish'>Side dish</option>
+                                <option value='Soup'>Soup</option>
+                                <option value='Starter'>Starter</option>
+                                <option value='Sweets'>Sweets</option>
                             </select>
                         </li>
                         <li className='filter-item'>
                             <h3>Calories</h3>
-                            <input type='range' id="calories" name="calories"  min="0" max="1000" step="50" />
+                            <div>
+                                <label htmlFor="min">Min</label>
+                                <input id='min_kcal' name='min' type='number' placeholder='Please enter a positive number'/>
+                            </div>
+                            <div>
+                                <label htmlFor='max'>Max</label>
+                                <input id='max_kcal' name='max' type='number' placeholder='Please enter a positive number'/>
+                            </div>
+                            {/* <input type='range' id="calories" name="calories"  min="0" max="1000" step="100" /> */}
                         </li>
                         <li className='filter-item'>
                             <h3>Diet</h3>
-                            <ul className='tag-list'>
-                                <li className='tag-item active'>balanced</li>
-                                <li className='tag-item'>high-fiber</li>
-                                <li className='tag-item'>high-protein</li>
-                                <li className='tag-item'>low-card</li>
-                                <li className='tag-item'>low-fat</li>
-                                <li className='tag-item'>low-sodium</li>
-                            </ul>
+                            <select id='diet' defaultValue='None'>
+                                <option value='None'>None</option>
+                                <option value='balanced'>balanced</option>
+                                <option value='high-fiber'>high-fiber</option>
+                                <option value='high-protein'>high-protein</option>
+                                <option value='low-card'>low-card</option>
+                                <option value='low-fat'>low-fat</option>
+                                <option value='low-sodium'>low-sodium</option>
+                            </select>
+                            {/* <ul className='tag-list'>
+                                    <li className='tag-item active'></li>
+                            </ul> */}
                         </li>
                         <li className='filter-item'>
                             <h3>Health</h3>
-                            <ul className='tag-list'>
-                            <li className='tag-item'>alcohol-cocktail</li>
-                            <li className='tag-item'>alcohol-free</li>
-                            <li className='tag-item'>celery-free</li>
-                            <li className='tag-item'>crustacean-free</li>
-                            <li className='tag-item'>dairy-free</li>
-                            <li className='tag-item'>DASH</li>
-                            <li className='tag-item'>egg-free</li>
-                            <li className='tag-item'>fish-free</li>
-                            <li className='tag-item'>fodmap-free</li>
-                            <li className='tag-item'>gluten-free</li>
-                            <li className='tag-item'>immuno-supportive</li>
-                            <li className='tag-item'>keto-friendly</li>
-                            <li className='tag-item'>kidney-friendly</li>
-                            <li className='tag-item'>kosher</li>
-                            <li className='tag-item'>low-fat-abs</li>
-                            <li className='tag-item'>low-potassium</li>
-                            <li className='tag-item'>low-sugar</li>
-                            <li className='tag-item'>lupine-free</li>
-                            <li className='tag-item'>Mediterranean</li>
-                            <li className='tag-item'>mollusk-free</li>
-                            <li className='tag-item'>mustard-free</li>
-                            <li className='tag-item'>no-oil-added</li>
-                            <li className='tag-item'>paleo</li>
-                            <li className='tag-item'>peanut-free</li>
-                            <li className='tag-item'>pescatarian</li>
-                            <li className='tag-item'>pork-free</li>
-                            <li className='tag-item'>red-meat-free</li>
-                            <li className='tag-item'>sesame-free</li>
-                            <li className='tag-item'>shellfish-free</li>
-                            <li className='tag-item'>soy-free</li>
-                            <li className='tag-item'>sugar-conscious</li>
-                            <li className='tag-item'>sulfite-free</li>
-                            <li className='tag-item'>tree-nut-free</li>
-                            <li className='tag-item'>vegan</li>
-                            <li className='tag-item'>vegetarian</li>
-                            <li className='tag-item'>wheat-free</li>
-                            </ul>
+                            <select id='health' defaultValue='None'>
+                            <option value='None'>None</option>
+                                <option value='alcohol-cocktail'>alcohol-cocktail</option>
+                                <option value='alcohol-free'>alcohol-free</option>
+                                <option value='celery-free'>celery-free</option>
+                                <option value='crustacean-free'>crustacean-free</option>
+                                <option value='dairy-free'>dairy-free</option>
+                                <option value='DASH'>DASH</option>
+                                <option value='egg-free'>egg-free</option>
+                                <option value='fish-free'>fish-free</option>
+                                <option value='fodmap-free'>fodmap-free</option>
+                                <option value='gluten-free'>gluten-free</option>
+                                <option value='immuno-supportive'>immuno-supportive</option>
+                                <option value='keto-friendly'>keto-friendly</option>
+                                <option value='kidney-friendly'>kidney-friendly</option>
+                                <option value='kosher'>kosher</option>
+                                <option value='low-fat-abs'>low-fat-abs</option>
+                                <option value='low-potassium'>low-potassium</option>
+                                <option value='low-sugar'>low-sugar</option>
+                                <option value='lupine-free'>lupine-free</option>
+                                <option value='Mediterranean'>Mediterranean</option>
+                                <option value='mollusk-free'>mollusk-free</option>
+                                <option value='mustard-free'>mustard-free</option>
+                                <option value='no-oil-added'>no-oil-added</option>
+                                <option value='paleo'>paleo</option>
+                                <option value='peanut-free'>peanut-free</option>
+                                <option value='pescatarian'>pescatarian</option>
+                                <option value='pork-free'>pork-free</option>
+                                <option value='red-meat-free'>red-meat-free</option>
+                                <option value='sesame-free'>sesame-free</option>
+                                <option value='shellfish-free'>shellfish-free</option>
+                                <option value='soy-free'>soy-free</option>
+                                <option value='sugar-conscious'>sugar-conscious</option>
+                                <option value='sulfite-free'>sulfite-free</option>
+                                <option value='tree-nut-free'>tree-nut-free</option>
+                                <option value='vegan'>vegan</option>
+                                <option value='vegetarian'>vegetarian</option>
+                                <option value='wheat-free'>wheat-free</option>
+                            </select>
+                            {/* <ul className='tag-list'>
+                                <li className='tag-item'></li>
+                            </ul> */}
                         </li>
                     </ul>
                 </div>

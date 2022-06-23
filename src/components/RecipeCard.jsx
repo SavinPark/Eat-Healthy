@@ -2,7 +2,7 @@ import React from "react";
 import { BiAlarm, BiDish,  } from "react-icons/bi";
 import { HiFire } from "react-icons/hi";
 
-function RecipeCard () {
+function RecipeCard ({ title, cuisine, kcal }) {
 
     return (
         <div className='recipe-card'>
@@ -10,7 +10,7 @@ function RecipeCard () {
                 {/* <img src={} alt='' /> */}
             </div>
             <div className='details'>
-                <h3>Chicken Vesuvio</h3>
+                <h3>{title}</h3>
                 <ul className='cook-info'>
                     <li>
                         <BiAlarm />
@@ -18,11 +18,11 @@ function RecipeCard () {
                     </li>
                     <li>
                         <BiDish />
-                        <span>Italian</span>
+                        <span>{cuisine}</span>
                     </li>
                     <li>
                         <HiFire />
-                        <span>4278 Kcal</span>
+                        <span>{kcal} Kcal</span>
                     </li>
                 </ul>
                 <p>

@@ -46,30 +46,20 @@ function RecipeSearch() {
             <div className="contents">
                 <ul className='recipe-list'>
                     <li className='recipe-item' onClick={onPopup}>
-                        {/* <RecipeCard /> */}
+                        <RecipeCard />
                         {/*
                         <Link to=''>
                         <RecipeCard />
                         </Link> */}
-                        RecipeCard
                     </li>
-                    <li className='recipe-item'>
-                    RecipeCard
-                        {/*
-                        <RecipeCard /> */}
+                    <li className='recipe-item'>                        
+                        <RecipeCard />
                     </li>
-                    <li className='recipe-item'>
-                    RecipeCard
-                        {/*
-                        <RecipeCard /> */}
+                    <li className='recipe-item'>                        
+                        <RecipeCard />
                     </li>
-                    <li className='recipe-item'>
-                        {/*
-                        <RecipeCard /> */}
-                    </li>
-                    <li className='recipe-item'>
-                        {/*
-                        <RecipeCard /> */}
+                    <li className='recipe-item'>                        
+                        <RecipeCard />
                     </li>
                 </ul>
                 <div className='filter'>
@@ -134,6 +124,17 @@ function RecipeSearch() {
                             <input type='range' id="calories" name="calories"  min="0" max="1000" step="50" />
                         </li>
                         <li className='filter-item'>
+                            <h3>Diet</h3>
+                            <ul className='tag-list'>
+                                <li className='tag-item active'>balanced</li>
+                                <li className='tag-item'>high-fiber</li>
+                                <li className='tag-item'>high-protein</li>
+                                <li className='tag-item'>low-card</li>
+                                <li className='tag-item'>low-fat</li>
+                                <li className='tag-item'>low-sodium</li>
+                            </ul>
+                        </li>
+                        <li className='filter-item'>
                             <h3>Health</h3>
                             <ul className='tag-list'>
                             <li className='tag-item'>alcohol-cocktail</li>
@@ -172,17 +173,6 @@ function RecipeSearch() {
                             <li className='tag-item'>vegan</li>
                             <li className='tag-item'>vegetarian</li>
                             <li className='tag-item'>wheat-free</li>
-                            </ul>
-                        </li>
-                        <li className='filter-item'>
-                            <h3>Diet</h3>
-                            <ul className='tag-list'>
-                                <li className='tag-item'>balanced</li>
-                                <li className='tag-item'>high-fiber</li>
-                                <li className='tag-item'>high-protein</li>
-                                <li className='tag-item'>low-card</li>
-                                <li className='tag-item'>low-fat</li>
-                                <li className='tag-item'>low-sodium</li>
                             </ul>
                         </li>
                     </ul>

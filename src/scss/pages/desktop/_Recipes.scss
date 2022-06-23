@@ -4,18 +4,19 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid red;
-
+        // border: 1px solid red;
+        
         .search {
             display: flex;
             justify-content: center;
-            width: 900px;
+            // width: 800px;
+            width: 1160px;
             height: 50px;
             padding: 0 25px;
             background-color: #fff;
             border-radius: 25px;
             border: 2px solid rgba(0, 0, 0, .3);
-
+            
             input {
                 flex: 1;
                 height: 46px;
@@ -47,16 +48,19 @@
         .contents {
             display: flex;
             justify-content: space-between;
-            width: 860px;
-            border: 1px solid orange;
+            width: 1160px;
+            margin-top: 30px;
+            // width: 800px;
+            // border: 1px solid orange;
 
             .recipe-list {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                width: 600px;
+                width: 850px;
+                // width: 500px;
                 height: 80vh;
-                padding: 5px 0;
+                padding-top: 10px;
                 overflow: auto;
                 // overflow-y: scroll;
                 background-color: #fff;
@@ -65,10 +69,26 @@
                     margin-bottom: 10px;
                     // border: 1px dashed green;
                 }
+                // Scroll bar
+                &::-webkit-scrollbar {
+                    width: 6px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 3px;
+                    background-color: rgba(0, 0, 0, .2);
+                }
+                &::-webkit-scrollbar-button {
+                    width: 0;
+                    height: 0;
+                }
             }
 
             .filter {
-                width: 240px;
+                width: 300px;
+                // width: 290px;
                 height: 80vh;
                 padding: 10px;
                 overflow: auto;
@@ -78,6 +98,21 @@
                     font-size: 20px;
                     font-weight: 600;
                     margin-bottom: 24px;
+                }
+                // Scroll bar
+                &::-webkit-scrollbar {
+                    width: 6px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 3px;
+                    background-color: rgba(0, 0, 0, .2);
+                }
+                &::-webkit-scrollbar-button {
+                    width: 0;
+                    height: 0;
                 }
                 .filter-list {
                     .filter-item {
@@ -91,16 +126,22 @@
                             display: flex;
                             flex-wrap: wrap;
                             .tag-item {
-                                // display: flex;
-                                // justify-content: space-between;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
                                 height: 24px;
                                 padding: 2px 8px;
                                 margin: 0 4px 6px 0;
                                 border-radius: 12px;
-                                color: #fff;
-                                // background-color: #A6AE9C;
-                                background-color: #9999CC;
-                                border: 1px solid red;
+                                color: #5A5333;
+                                background-color: rgba($color: #9999CC, $alpha: 0.3);
+                                cursor: pointer;
+                                // border: 1px solid red;
+                                
+                                &.active {
+                                    color: #fff;
+                                    background-color: #9999CC;
+                                }
                             }
                         }
                     }

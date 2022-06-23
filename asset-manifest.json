@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/Eat-Healthy/static/css/main.0540cd57.css",
-    "main.js": "/Eat-Healthy/static/js/main.6fa17a34.js",
+    "main.css": "/Eat-Healthy/static/css/main.2cda5f8e.css",
+    "main.js": "/Eat-Healthy/static/js/main.d29c8c2e.js",
     "static/js/787.7423e620.chunk.js": "/Eat-Healthy/static/js/787.7423e620.chunk.js",
     "static/media/home-bg.png": "/Eat-Healthy/static/media/home-bg.e37492b085bb86d04ebb.png",
+    "static/media/nutrition.png": "/Eat-Healthy/static/media/nutrition.58eca06435c8d65d8109.png",
+    "static/media/user.png": "/Eat-Healthy/static/media/user.557587208eb9e232f2ca.png",
+    "static/media/healthy-food.png": "/Eat-Healthy/static/media/healthy-food.89b85ea7a065a8b6f2b6.png",
+    "static/media/cutlery.png": "/Eat-Healthy/static/media/cutlery.650aeaa6b0ff43e970bb.png",
+    "static/media/recipe-book.png": "/Eat-Healthy/static/media/recipe-book.5b42d3c9fef76d6a0b6b.png",
+    "static/media/home.png": "/Eat-Healthy/static/media/home.2ed360dd34282fb2abc7.png",
+    "static/media/Edamam_Badge.svg": "/Eat-Healthy/static/media/Edamam_Badge.8e87d8275adcedc980669ac599d8cc26.svg",
     "index.html": "/Eat-Healthy/index.html",
-    "main.0540cd57.css.map": "/Eat-Healthy/static/css/main.0540cd57.css.map",
-    "main.6fa17a34.js.map": "/Eat-Healthy/static/js/main.6fa17a34.js.map",
+    "main.2cda5f8e.css.map": "/Eat-Healthy/static/css/main.2cda5f8e.css.map",
+    "main.d29c8c2e.js.map": "/Eat-Healthy/static/js/main.d29c8c2e.js.map",
     "787.7423e620.chunk.js.map": "/Eat-Healthy/static/js/787.7423e620.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0540cd57.css",
-    "static/js/main.6fa17a34.js"
+    "static/css/main.2cda5f8e.css",
+    "static/js/main.d29c8c2e.js"
   ]
 }

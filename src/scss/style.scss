@@ -12,8 +12,8 @@
 @import './components/tablet/Navigation';
 @import './components/tablet/RecipeCard';
 
-// @import './components/mobile/Navigation';
-// @import './components/mobile/RecipeCard';
+@import './components/mobile/Navigation';
+@import './components/mobile/RecipeCard';
 
 // --- pages --- //
 @import './pages/desktop/App';
@@ -25,6 +25,6 @@
 @import './pages/tablet/Recipes';
 // @import './pages/tablet/Home';
 
-// @import './pages/mobile/App';
+@import './pages/mobile/App';
+@import './pages/mobile/Recipes';
 // @import './pages/mobile/Home';
-// @import './pages/mobile/Recipes';

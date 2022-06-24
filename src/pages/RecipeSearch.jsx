@@ -100,6 +100,27 @@ function RecipeSearch() {
                     <li className='recipe-item' onClick={onPopup}>
                         <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
                     </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
+                    <li className='recipe-item' onClick={onPopup}>
+                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
+                    </li>
                     {/* <Link to=''><RecipeCard /></Link> */}
                 </ul>
                 <div className='filter'>

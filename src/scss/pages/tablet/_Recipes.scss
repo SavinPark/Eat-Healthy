@@ -53,7 +53,7 @@
             width: 760px;
             margin-top: 30px;
             // width: 800px;
-            border: 1px solid orange;
+            // border: 1px solid red;
 
             .recipe-list {
                 display: flex;
@@ -64,8 +64,9 @@
                 padding-top: 10px;
                 margin-top: 10px;
                 overflow: auto;
-                background-color: #fff;
-                border: 1px solid orange;
+                background-color: rgba(255, 255, 255, 0.7);
+                // background-color: #fff;
+                // border: 1px solid orange;
 
                 .recipe-item {
                     margin-bottom: 10px;
@@ -93,7 +94,9 @@
                 height: 24vh;
                 padding: 20px 20px 10px;
                 color: #42493A;
-                background-color: #fff;
+                // background-color: #fff;
+                background-color: rgba(255, 255, 255, 0.7);
+                
                 h2 {
                     font-size: 20px;
                     font-weight: 700;

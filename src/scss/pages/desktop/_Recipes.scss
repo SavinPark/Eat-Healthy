@@ -61,7 +61,8 @@
                 height: 80vh;
                 padding-top: 10px;
                 overflow: auto;
-                background-color: #fff;
+                // background-color: #fff;
+                background-color: rgba(255, 255, 255, 0.7);
 
                 .recipe-item {
                     margin-bottom: 10px;
@@ -89,7 +90,8 @@
                 padding: 20px;
                 overflow: auto;
                 color: #42493A;
-                background-color: #fff;
+                // background-color: #fff;
+                background-color: rgba(255, 255, 255, 0.7);
                 h2 {
                     font-size: 20px;
                     font-weight: 9700;

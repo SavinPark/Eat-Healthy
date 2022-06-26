@@ -12,9 +12,10 @@
 
 
         .thumbnail {
-            width: 200px;
-            height: 200px;
-            background-color: rgba(0, 0, 0, .1);
+            img {
+                width: 200px;
+                height: 200px;
+            }
         }
 
         .details {

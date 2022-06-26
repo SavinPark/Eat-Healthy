@@ -2,12 +2,20 @@ import React from "react";
 import { BiAlarm, BiDish,  } from "react-icons/bi";
 import { HiFire } from "react-icons/hi";
 
-function RecipeCard ({ label, time, cuisine, kcal }) {
+function RecipeCard ({ label, thumbnail, time, dishType, cuisine, kcal, tags }) {
+
+    const capitalize = (str) => {
+        let result = '';
+        str.split(' ').forEach(word => {
+            result += word.charAt(0).toUpperCase() + word.slice(1) + ' ';
+        });
+        return result.substr(0, result.length-1);
+    } 
 
     return (
         <div className='recipe-card'>
             <div className='thumbnail'>
-                {/* <img src={} alt='' /> */}
+                <img src={thumbnail} alt='thumbnail' />
             </div>
             <div className='details'>
                 <h3>{label}</h3>
@@ -18,24 +26,26 @@ function RecipeCard ({ label, time, cuisine, kcal }) {
                     </li>
                     <li>
                         <BiDish />
-                        <span>{cuisine}</span>
+                        {dishType.map((ele, idx) => {return (<span key={idx}>{ele}</span>)})}
+                    </li>
+                    <li>
+                        <BiDish />
+                        <span>{capitalize(cuisine)}</span>
                     </li>
                     <li>
                         <HiFire />
-                        <span>{kcal} Kcal</span>
+                        <span>{Math.round(kcal)} Kcal</span>
                     </li>
                 </ul>
-                <p>
+                {/* <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Diam eu nibh amet, quisque maecenas congue eget neque sed. 
-                    Congue eros, morbi sollicitudin mauris egestas risus molestie velit, et. 
-                    Volutpat magna turpis id mauris auctor.
-                </p>
+                    Diam eu nibh amet, quisque maecenas congue eget neque sed.
+                </p> */}
                 <ul className="tag-list">
-                    <li className="tag-item">#Diary-Free</li>
-                    <li className="tag-item">#Egg-Free</li>
-                    <li className="tag-item">#Gluten-Free</li>
-                    <li className="tag-item">#Wheat-Free</li>
+                    { tags.map((tag, key) => {
+                        return (<li key={key} className="tag-item">#{tag}</li>)
+                    }) }
+                    {/* <li className="tag-item">#Diary-Free</li> */}
                 </ul>
             </div>
         </div>

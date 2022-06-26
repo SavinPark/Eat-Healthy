@@ -64,6 +64,12 @@
                 // background-color: #fff;
                 background-color: rgba(255, 255, 255, 0.7);
 
+                .empty-sign {
+                    margin-top: 240px;
+                    font-size: 40px;
+                    color: rgba(0, 0, 0, .5);
+                }
+
                 .recipe-item {
                     margin-bottom: 10px;
                 }
@@ -94,7 +100,7 @@
                 background-color: rgba(255, 255, 255, 0.7);
                 h2 {
                     font-size: 20px;
-                    font-weight: 9700;
+                    font-weight: 700;
                     margin-bottom: 40px;
                 }
                 // Scroll bar

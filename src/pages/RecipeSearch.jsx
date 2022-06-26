@@ -5,37 +5,36 @@ import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 
 import { GoSearch } from "react-icons/go";
-import { IoClose } from "react-icons/io5";
-import EdamamBadge from '../images/Edamam_Badge.svg';
+// import { IoClose } from "react-icons/io5";
+// import EdamamBadge from '../images/Edamam_Badge.svg';
 
 function RecipeSearch() {
 
+    const [recipe, setRecipe] = useState([]);
+
     const getURL = () => {
-        // env 적용하면 X , 노출 시키면 O
-        // const APP_ID =  'd1649c03';
-        // const APP_KEY =  '27d7dd8154b5984a64997ccadf516b13';
         const APP_ID = process.env.REACT_APP_EDAMAM_API_ID_RECIPE;
         const APP_KEY = process.env.REACT_APP_EDAMAM_API_KEY_RECIPE;
 
         let Q = $('#keyword').val();
         let URL = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${APP_ID}&app_key=${APP_KEY}&q=${Q}`
 
-        if($('#meal-type').val() !== 'None') {
+        if ($('#meal-type').val() !== 'None') {
             URL += `&mealType=${$('#meal-type').val()}`
         }
-        if($('#cuisine-type').val() !== 'None') {
+        if ($('#cuisine-type').val() !== 'None') {
             URL += `&cuisineType=${$('#cuisine-type').val()}`
         }
-        if($('#dish-type').val() !== 'None') {
+        if ($('#dish-type').val() !== 'None') {
             URL += `&dishType=${$('#dish-type').val()}`
         }
-        if($('#diet').val() !== 'None') {
+        if ($('#diet').val() !== 'None') {
             URL += `&diet=${$('#diet').val()}`
         }
-        if($('#health').val() !== 'None') {
+        if ($('#health').val() !== 'None') {
             URL += `&health=${$('#health').val()}`
         }
-        if($('#min_kcal').val() !== '' && $('#max_kcal').val() !== '') {
+        if ($('#min_kcal').val() !== '' && $('#max_kcal').val() !== '') {
             URL += `&calories=${$('#min_kcal').val()}-${$('#max_kcal').val()}`
         } else if ($('#min_kcal').val() === '' && $('#max_kcal').val() !== '') {
             URL += `&calories=${$('#max_kcal').val()}`
@@ -44,38 +43,23 @@ function RecipeSearch() {
         }
         return URL;
     }
-
-    let html = '';
-    const renderRecipeCard = (label, time, cuisine, kcal) => {
-        // $('#recipe-list')[0].innerHTML = html;
-        html += `<li className='recipe-item'>
-                    ${label} ${time} ${cuisine} ${kcal}
-                </li>`
-        console.log(label, time, cuisine, kcal)
-    }
-
-    const onSearch = () => {
+    
+    const getRecipes = async () => {
         let url = getURL();
-        console.log(url);
-        axios.get(url, {
-            // headers: {
-            //     'Access-Control-Allow-Origin': '*'
-            // }
-        })
-        .then(response => {
-            console.log(response)
-            response.data.hits.forEach(ele => {
-                renderRecipeCard(ele.recipe.label, 60, ele.recipe.cuisineType[0], ele.recipe.calories)
-            })
-            $('#recipe-list')[0].innerHTML = html;
-        })
-        .catch(error => {
-            alert('Make sure your query is correct.');
-            console.error(error)
-        })
-
+        try {
+            let response = await axios.get(url);
+            setRecipe(response.data.hits);
+            // console.log(response.data)
+        } catch (error) {
+            console.error(error);
+        }
     }
-    useEffect(()=>{
+    
+    const onSearch = () => {
+        setRecipe([]);
+        getRecipes();
+    }
+    useEffect(() => {
         $('.search').keypress((event) => {
             if (event.keyCode === 13) onSearch();
         });
@@ -97,30 +81,28 @@ function RecipeSearch() {
             </div>
             <div className="contents">
                 <ul className='recipe-list' id='recipe-list'>
-                    <li className='recipe-item' onClick={onPopup}>
+                    {   recipe.length !== 0 ?
+                        recipe.map((ele, idx) => {
+                            let tags = [];
+                            for (let i=0; i<5; i++) {
+                                tags.push(ele.recipe.healthLabels[i])
+                            }
+                            return (
+                            <li key={idx} className='recipe-item'>
+                                <RecipeCard label={ele.recipe.label} 
+                                            thumbnail={ele.recipe.images.SMALL.url} 
+                                            time={ele.recipe.totalTime} 
+                                            dishType={ele.recipe.dishType}
+                                            cuisine={ele.recipe.cuisineType[0]}
+                                            kcal={ele.recipe.calories} 
+                                            tags={tags} />
+                            </li>)
+                        }) : 
+                        (<p className='empty-sign'>No Recipes</p>)    
+                    }
+                    {/* <li className='recipe-item' onClick={onPopup}>
                         <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
-                    <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>
+                    </li>*/}
                     {/* <Link to=''><RecipeCard /></Link> */}
                 </ul>
                 <div className='filter'>

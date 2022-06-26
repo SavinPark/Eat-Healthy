@@ -5,7 +5,7 @@ import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 
 import { GoSearch } from "react-icons/go";
-// import { IoClose } from "react-icons/io5";
+import { IoIosArrowDown } from "react-icons/io";
 // import EdamamBadge from '../images/Edamam_Badge.svg';
 
 function RecipeSearch() {
@@ -103,6 +103,7 @@ function RecipeSearch() {
                 </ul>
                 <div className='filter active'>
                     <h2>Filter</h2>
+                    <button><IoIosArrowDown/></button>
                     <ul className='filter-list'>
                         <li className='filter-item'>
                             <h3>Meal Type</h3>

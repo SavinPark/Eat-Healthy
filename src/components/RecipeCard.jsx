@@ -1,5 +1,5 @@
 import React from "react";
-import { BiAlarm, BiDish,  } from "react-icons/bi";
+import { BiAlarm, BiDish, BiWorld } from "react-icons/bi";
 import { HiFire } from "react-icons/hi";
 
 function RecipeCard ({ label, thumbnail, time, dishType, cuisine, kcal, tags }) {
@@ -37,7 +37,7 @@ function RecipeCard ({ label, thumbnail, time, dishType, cuisine, kcal, tags }) 
                         {dishType.map((ele, idx) => {return (<span key={idx}>{ele}</span>)})}
                     </li>
                     <li>
-                        <BiDish />
+                        <BiWorld />
                         <span>{capitalize(cuisine)}</span>
                     </li>
                     <li>

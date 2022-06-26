@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Eat-Healthy/static/css/main.e79fb818.css",
-    "main.js": "/Eat-Healthy/static/js/main.5834e36d.js",
+    "main.css": "/Eat-Healthy/static/css/main.b8a4f279.css",
+    "main.js": "/Eat-Healthy/static/js/main.4519cb9c.js",
     "static/js/787.7423e620.chunk.js": "/Eat-Healthy/static/js/787.7423e620.chunk.js",
     "static/media/home-bg.png": "/Eat-Healthy/static/media/home-bg.e37492b085bb86d04ebb.png",
     "static/media/nutrition.png": "/Eat-Healthy/static/media/nutrition.58eca06435c8d65d8109.png",
@@ -10,14 +10,13 @@
     "static/media/cutlery.png": "/Eat-Healthy/static/media/cutlery.650aeaa6b0ff43e970bb.png",
     "static/media/recipe-book.png": "/Eat-Healthy/static/media/recipe-book.5b42d3c9fef76d6a0b6b.png",
     "static/media/home.png": "/Eat-Healthy/static/media/home.2ed360dd34282fb2abc7.png",
-    "static/media/Edamam_Badge.svg": "/Eat-Healthy/static/media/Edamam_Badge.8e87d8275adcedc980669ac599d8cc26.svg",
     "index.html": "/Eat-Healthy/index.html",
-    "main.e79fb818.css.map": "/Eat-Healthy/static/css/main.e79fb818.css.map",
-    "main.5834e36d.js.map": "/Eat-Healthy/static/js/main.5834e36d.js.map",
+    "main.b8a4f279.css.map": "/Eat-Healthy/static/css/main.b8a4f279.css.map",
+    "main.4519cb9c.js.map": "/Eat-Healthy/static/js/main.4519cb9c.js.map",
     "787.7423e620.chunk.js.map": "/Eat-Healthy/static/js/787.7423e620.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e79fb818.css",
-    "static/js/main.5834e36d.js"
+    "static/css/main.b8a4f279.css",
+    "static/js/main.4519cb9c.js"
   ]
 }

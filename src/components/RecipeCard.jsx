@@ -10,7 +10,15 @@ function RecipeCard ({ label, thumbnail, time, dishType, cuisine, kcal, tags }) 
             result += word.charAt(0).toUpperCase() + word.slice(1) + ' ';
         });
         return result.substr(0, result.length-1);
-    } 
+    }
+
+    const getTags = (list) => {
+        let result = '';
+        list.forEach(ele => {
+            result += `#${ele} `
+        })
+        return result.substr(0, result.length-1);
+    }
 
     return (
         <div className='recipe-card'>
@@ -37,16 +45,10 @@ function RecipeCard ({ label, thumbnail, time, dishType, cuisine, kcal, tags }) 
                         <span>{Math.round(kcal)} Kcal</span>
                     </li>
                 </ul>
-                {/* <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Diam eu nibh amet, quisque maecenas congue eget neque sed.
-                </p> */}
-                <ul className="tag-list">
-                    { tags.map((tag, key) => {
-                        return (<li key={key} className="tag-item">#{tag}</li>)
-                    }) }
-                    {/* <li className="tag-item">#Diary-Free</li> */}
-                </ul>
+                <p className="tags">
+                    {getTags(tags)}
+                </p>
+
             </div>
         </div>
     )

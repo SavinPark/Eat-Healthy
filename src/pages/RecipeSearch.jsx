@@ -84,9 +84,9 @@ function RecipeSearch() {
                     {   recipe.length !== 0 ?
                         recipe.map((ele, idx) => {
                             let tags = [];
-                            for (let i=0; i<5; i++) {
-                                tags.push(ele.recipe.healthLabels[i])
-                            }
+                            // for (let i=0; i<1; i++) {
+                            //     tags.push(ele.recipe.healthLabels[i])
+                            // }
                             return (
                             <li key={idx} className='recipe-item'>
                                 <RecipeCard label={ele.recipe.label} 
@@ -94,18 +94,14 @@ function RecipeSearch() {
                                             time={ele.recipe.totalTime} 
                                             dishType={ele.recipe.dishType}
                                             cuisine={ele.recipe.cuisineType[0]}
-                                            kcal={ele.recipe.calories} 
-                                            tags={tags} />
+                                            kcal={ele.recipe.calories}
+                                            tags={ele.recipe.healthLabels} />
                             </li>)
                         }) : 
                         (<p className='empty-sign'>No Recipes</p>)    
                     }
-                    {/* <li className='recipe-item' onClick={onPopup}>
-                        <RecipeCard label='Chicken' time='60' cuisine='Italian' kcal='4000'/>
-                    </li>*/}
-                    {/* <Link to=''><RecipeCard /></Link> */}
                 </ul>
-                <div className='filter'>
+                <div className='filter active'>
                     <h2>Filter</h2>
                     <ul className='filter-list'>
                         <li className='filter-item'>

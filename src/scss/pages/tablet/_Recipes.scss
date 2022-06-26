@@ -97,16 +97,14 @@
             .filter {
                 order: -1;
                 width: 760px;
-                height: 24vh;
+                // height: 36vh;
                 padding: 20px 20px 10px;
                 color: #42493A;
-                // background-color: #fff;
                 background-color: rgba(255, 255, 255, 0.7);
                 
                 h2 {
                     font-size: 20px;
                     font-weight: 700;
-                    margin-bottom: 25px;
                 }
                 .filter-list {
                     display: flex;
@@ -115,7 +113,7 @@
                     flex-wrap: wrap;
                     .filter-item {
                         margin-right: 30px;
-                        margin-bottom: 20px;
+                        margin-top: 20px;
                         h3 {
                             font-size: 18px;
                             font-weight: 500;

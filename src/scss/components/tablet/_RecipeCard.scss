@@ -12,9 +12,6 @@
 
 
         .thumbnail {
-            // width: 150px;
-            // height: 150px;
-            // background-color: rgba(0, 0, 0, .1);
             img {
                 width: 150px;
                 height: 150px;
@@ -33,6 +30,11 @@
             h3 {
                 font-size: 24px;
                 font-weight: 600;
+                overflow: hidden;
+                white-space: normal;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
             }
             
             .cook-info {
@@ -49,32 +51,18 @@
                 }
             }
 
-            p {
-                display: flex;
-                font-size: 20px;
+            .tags {
+                font-size: 16px;
+                letter-spacing: 1.2px;
+                color: rgba(0, 0, 0, .7);
+                // border: 1px dashed green;
                 overflow: hidden;
                 white-space: normal;
                 display: -webkit-box;
                 -webkit-line-clamp: 3;
                 -webkit-box-orient: vertical;
-                // border: 1px dashed green;
-            }
-
-            .tag-list {
-                display: none;
-                // border: 1px dashed green;
-                li {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 20px;
-                    padding: 0 8px;
-                    margin-right: 10px;
-                    font-size: 16px;
-                    color: rgba(0, 0, 0, .8);
-                    background-color: rgba(0, 0, 0, .06);
-                    border-radius: 10px;
-                }
+                word-wrap: break-word;
+                line-height: 1.4;
             }
         }
     }

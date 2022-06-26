@@ -3,74 +3,55 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 290px;
+        width: 300px;
         height: 120px;
-        padding: 5px;
+        padding: 10px;
         background: #fff;
         border-radius: 5px;
         box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, .25);
 
 
         .thumbnail {
-            width: 100px;
-            height: 100px;
-            background-color: rgba(0, 0, 0, .1);
+            img {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         .details {
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: space-between;
             width: 170px;
             height: 100px;
-            padding: 5px 0;
-            border: 1px dashed hotpink;
+            padding: 0 8px;
+            // border: 1px dashed hotpink;
             
             h3 {
-                font-size: 18px;
+                font-size: 16px;
                 font-weight: 600;
+                margin-bottom: 8px;
+                // border: 1px dashed red;
+                overflow: hidden;
+                white-space: normal;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
             }
             
             .cook-info {
-                // display: flex;
                 font-size: 14px;
+                color: rgba(0, 0, 0, .7);
                 // border: 1px dashed red;
                 li {
                     display: flex;
                     align-items: center;
-                    margin-right: 10px;
+                    margin-bottom: 4px;
                     span {
-                        margin-left: 4px;
+                        margin-left: 6px;
                     }
                 }
             }
 
-            p {
+            .tags {
                 display: none;
-                font-size: 10px;
-        //         overflow: hidden;
-        //         white-space: normal;
-        //         display: -webkit-box;
-        //         -webkit-line-clamp: 3;
-        //         -webkit-box-orient: vertical;
-        //         // border: 1px dashed green;
-            }
-
-            .tag-list {
-                display: none;
-        //         // border: 1px dashed green;
-        //         li {
-        //             display: flex;
-        //             justify-content: center;
-        //             align-items: center;
-        //             height: 20px;
-        //             padding: 0 8px;
-        //             margin-right: 10px;
-        //             font-size: 16px;
-        //             color: rgba(0, 0, 0, .8);
-        //             background-color: rgba(0, 0, 0, .06);
-        //             border-radius: 10px;
-        //         }
             }
         }
     }

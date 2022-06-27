@@ -3,8 +3,10 @@ import {useEffect, useState} from 'react';
 import $ from 'jquery';
 import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
+import RecipePopup from "../components/RecipePopup";
 
 import { GoSearch } from "react-icons/go";
+import { Link } from "react-router-dom";
 // import EdamamBadge from '../images/Edamam_Badge.svg';
 
 function RecipeSearch() {
@@ -46,8 +48,13 @@ function RecipeSearch() {
     const getRecipes = async () => {
         let url = getURL();
         try {
-            let response = await axios.get(url);
+            let response = await axios.get(url, {
+                headers : {
+                    'Access-Control-Allow-Origin': '*'
+                }
+            });
             setRecipe(response.data.hits);
+            console.log(response.data.hits);
         } catch (error) {
             alert("Error!");
             console.error(error);
@@ -68,13 +75,10 @@ function RecipeSearch() {
     const toggleBtn = () => {
         setIsActive(!isActive);
     }
-
-    const onPopup = () => {
-        console.log('Popup Card!');
-        // 함수 말고 Router로 연결...?
-        // 팝업 카드 방법
-        // [1] 함수 클릭하면 props 전달해서 팝업카드 렌더링
-        // [2] 카드에 Link 연결해서 여기서 Router로 보여주기
+    
+    const setPopupKey = (key) => {
+        localStorage.removeItem('popup-key');
+        localStorage.setItem('popup-key', key);
     }
 
     return(
@@ -88,14 +92,18 @@ function RecipeSearch() {
                     {   recipe.length !== 0 ?
                         recipe.map((ele, idx) => {
                             return (
-                            <li key={idx} className='recipe-item'>
-                                <RecipeCard label={ele.recipe.label} 
-                                            thumbnail={ele.recipe.images.SMALL.url} 
-                                            time={ele.recipe.totalTime} 
-                                            dishType={ele.recipe.dishType}
-                                            cuisine={ele.recipe.cuisineType[0]}
-                                            kcal={ele.recipe.calories}
-                                            tags={ele.recipe.healthLabels} />
+                            // <li key={idx} className='recipe-item' onClick={() => {setPopupKey(ele._links.self.href)}}>
+                            <li key={idx} className='recipe-item' onClick={() => {setPopupKey(ele.recipe.uri.split('_')[1])}}>
+                                {/* {console.log(ele.recipe.uri.split('_')[1])} */}
+                                <Link to="/Eat-Healthy/RecipeSearch/view">
+                                    <RecipeCard label={ele.recipe.label} 
+                                        thumbnail={ele.recipe.images.SMALL.url} 
+                                        time={ele.recipe.totalTime} 
+                                        dishType={ele.recipe.dishType}
+                                        cuisine={ele.recipe.cuisineType[0]}
+                                        kcal={ele.recipe.calories}
+                                        tags={ele.recipe.healthLabels} />
+                                </Link>
                             </li>)
                         }) : 
                         (<p className='empty-sign'>No Recipes</p>)    

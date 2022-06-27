@@ -9,7 +9,7 @@
         background: #fff;
         border-radius: 10px;
         box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .25);
-
+        cursor: pointer;
 
         .thumbnail {
             img {
@@ -39,7 +39,7 @@
             
             .cook-info {
                 display: flex;
-                font-size: 18px;
+                font-size: 16px;
                 // border: 1px dashed red;
                 li {
                     display: flex;

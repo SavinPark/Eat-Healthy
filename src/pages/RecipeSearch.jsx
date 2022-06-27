@@ -5,7 +5,6 @@ import axios from "axios";
 import RecipeCard from "../components/RecipeCard";
 
 import { GoSearch } from "react-icons/go";
-import { IoIosArrowDown } from "react-icons/io";
 // import EdamamBadge from '../images/Edamam_Badge.svg';
 
 function RecipeSearch() {
@@ -49,8 +48,8 @@ function RecipeSearch() {
         try {
             let response = await axios.get(url);
             setRecipe(response.data.hits);
-            // console.log(response.data)
         } catch (error) {
+            alert("Error!");
             console.error(error);
         }
     }
@@ -64,6 +63,11 @@ function RecipeSearch() {
             if (event.keyCode === 13) onSearch();
         });
     })
+
+    const [isActive, setIsActive] = useState(false);
+    const toggleBtn = () => {
+        setIsActive(!isActive);
+    }
 
     const onPopup = () => {
         console.log('Popup Card!');
@@ -83,10 +87,6 @@ function RecipeSearch() {
                 <ul className='recipe-list' id='recipe-list'>
                     {   recipe.length !== 0 ?
                         recipe.map((ele, idx) => {
-                            let tags = [];
-                            // for (let i=0; i<1; i++) {
-                            //     tags.push(ele.recipe.healthLabels[i])
-                            // }
                             return (
                             <li key={idx} className='recipe-item'>
                                 <RecipeCard label={ele.recipe.label} 
@@ -101,9 +101,9 @@ function RecipeSearch() {
                         (<p className='empty-sign'>No Recipes</p>)    
                     }
                 </ul>
-                <div className='filter active'>
+                <div className={ isActive ? 'filter active' : 'filter'}>
                     <h2>Filter</h2>
-                    <button><IoIosArrowDown/></button>
+                    <div className={ isActive ? 'filter-toggle active' : 'filter-toggle'} onClick={toggleBtn}></div>
                     <ul className='filter-list'>
                         <li className='filter-item'>
                             <h3>Meal Type</h3>
@@ -172,7 +172,6 @@ function RecipeSearch() {
                                 <label htmlFor='max'>Max</label>
                                 <input id='max_kcal' name='max' type='number' placeholder='Positive number'/>
                             </div>
-                            {/* <input type='range' id="calories" name="calories"  min="0" max="1000" step="100" /> */}
                         </li>
                         <li className='filter-item'>
                             <h3>Diet</h3>

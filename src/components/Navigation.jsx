@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 
 import Cutlery from '../images/icons/cutlery.png';
@@ -19,35 +19,51 @@ function Navigation() {
         window.localStorage.clear();
     }
 
-    // const onActive = (event) => {
-    //     document.querySelector('.active').classList.remove('active');
-    //     // console.log(event.target.getAttribute('id'))
-    //     // event.target.classList.add('active');
-    // }
+    const [menu, setMenu] = useState('home');
 
 
     return(
         <nav>
-            <img className="nav-logo" src={Cutlery} alt='Logo' />
+            <Link to='/Eat-Healthy'>
+                <img className="nav-logo" src={Cutlery} alt='Logo' />
+            </Link>
             <ul>
                 <li>
-                    <Link to='/Eat-Healthy'><div id='home' className="menu-btn active"><img className="menu-icon home" src={HomeIcon} alt='Home' /></div></Link>
+                    <Link to='/Eat-Healthy'>
+                        <div onClick={()=>{setMenu('home')}} className={menu === 'home' ? "menu-btn active" : "menu-btn"}>
+                            <img className="menu-icon home" src={HomeIcon} alt='Home' />
+                        </div>
+                    </Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/User'><div id='user' className="menu-btn"><img className="menu-icon user" src={UserIcon} alt='User' /></div></Link>
+                    <Link to='/Eat-Healthy/User'>
+                        <div onClick={()=>{setMenu('user')}} className={menu === 'user' ? "menu-btn active" : "menu-btn"}>
+                            <img className="menu-icon user" src={UserIcon} alt='User' />
+                        </div>
+                    </Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/FoodDatabase'><div id='foodDB' className="menu-btn"><img className="menu-icon" src={FoodIcon} alt='Food Database' /></div></Link>
+                    <Link to='/Eat-Healthy/FoodDatabase'>
+                        <div onClick={()=>{setMenu('foodDB')}} className={menu === 'foodDB' ? "menu-btn active" : "menu-btn"}>
+                            <img className="menu-icon" src={FoodIcon} alt='Food Database' />
+                        </div>
+                    </Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/NutritionAnalysis'><div id='nutrition' className="menu-btn"><img className="menu-icon" src={NutritionIcon} alt='Nutrition Analysis' /></div></Link>
+                    <Link to='/Eat-Healthy/NutritionAnalysis'>
+                        <div  onClick={()=>{setMenu('nutrition')}} className={menu === 'nutrition' ? "menu-btn active" : "menu-btn"}>
+                            <img className="menu-icon" src={NutritionIcon} alt='Nutrition Analysis' />
+                        </div>
+                    </Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/RecipeSearch'><div id='recipes' className="menu-btn"><img className="menu-icon" src={RecipeIcon} alt='Recipe Search' /></div></Link>
+                    <Link to='/Eat-Healthy/RecipeSearch'>
+                        <div  onClick={()=>{setMenu('recipes')}} className={menu === 'recipes' ? "menu-btn active" : "menu-btn"}>
+                            <img className="menu-icon" src={RecipeIcon} alt='Recipe Search' />
+                        </div>
+                    </Link>
                 </li>
-                {/* <li>
-                    <Link to='/Eat-Healthy'><div className="menu-btn"></div></Link>
-                </li> */}
+
                 {/* { window.localStorage.getItem("TOKEN") && (
                     <li>
                         <Link to='/Eat-Healthy/My'><div className="menu-btn">My</div></Link>

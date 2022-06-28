@@ -4,6 +4,10 @@
 // --- abstracts --- //
 @import './abstracts/mixins';
 
+// --- fonts --- //
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 // --- components --- //
 @import './components/desktop/Navigation';
 @import './components/desktop/RecipeCard';

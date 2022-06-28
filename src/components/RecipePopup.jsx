@@ -9,31 +9,31 @@ import { GiCook, GiChefToque } from "react-icons/gi";
 import { ImSpoonKnife, ImGlass2, ImGlass, ImFire, ImAlarm, ImMap2 } from "react-icons/im";
 import { useEffect } from "react";
 
-function RecipePopup ({ popupKey }) {
+function RecipePopup () {
 
-    const [data, setData] = useState([]);
+    let [data, setData] = useState([]);
+    const FOOD_ID = window.location.pathname.split('/')[4];
+    const APP_ID = process.env.REACT_APP_EDAMAM_API_ID_RECIPE;
+    const APP_KEY = process.env.REACT_APP_EDAMAM_API_KEY_RECIPE;
 
-    // const getRecipe = async () => {
-        const APP_ID = process.env.REACT_APP_EDAMAM_API_ID_RECIPE;
-        const APP_KEY = process.env.REACT_APP_EDAMAM_API_KEY_RECIPE;
-        let url=`https://api.edamam.com/api/recipes/v2/${popupKey}?type=public&app_id=${APP_ID}&app_key=${APP_KEY}`;
-         try {
-            let response = axios.get(url, {
-                headers : {
-                    'Access-Control-Allow-Origin': '*'
-                }
-            });
-            // recipe = response.data.recipe;
-            console.log(popupKey);
-            console.log(response.data);
+    const getRecipe = async () => {
+        let url=`https://api.edamam.com/api/recipes/v2/${FOOD_ID}?type=public&app_id=${APP_ID}&app_key=${APP_KEY}`;
+        try {
+            let response = await axios.get(url);
+            // console.log(response.data.recipe);
+            return response.data.recipe
         } catch (error) {
             alert("Error!");
             console.error(error);
         }
-    // }
-    // useEffect(() => {
-    //     getRecipe();
-    // })
+    }
+
+    const getLabel = () => {
+        getRecipe().then((recipe) => {
+            console.log(recipe.label)
+            return recipe.label
+        })
+    }
 
     const goBack = () => {
         // location
@@ -46,7 +46,7 @@ function RecipePopup ({ popupKey }) {
                 <IoIosClose className='btn-close' onClick={goBack}/>
             </Link>
             <div className='popup-inner popup-left'>
-                <h2>{data.label}</h2>
+                <h2>{ getLabel() }</h2>
                 <div className='popup-img'>
                     {/* <img src={data.images.REGULAR.url} alt={data.label} /> */}
                 </div>

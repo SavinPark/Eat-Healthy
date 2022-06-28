@@ -75,11 +75,7 @@ function RecipeSearch() {
     const toggleBtn = () => {
         setIsActive(!isActive);
     }
-    
-    const setPopupKey = (key) => {
-        localStorage.removeItem('popup-key');
-        localStorage.setItem('popup-key', key);
-    }
+
 
     return(
         <section className="page-recipes">
@@ -93,9 +89,9 @@ function RecipeSearch() {
                         recipe.map((ele, idx) => {
                             return (
                             // <li key={idx} className='recipe-item' onClick={() => {setPopupKey(ele._links.self.href)}}>
-                            <li key={idx} className='recipe-item' onClick={() => {setPopupKey(ele.recipe.uri.split('_')[1])}}>
+                            <li key={idx} className='recipe-item'>
                                 {/* {console.log(ele.recipe.uri.split('_')[1])} */}
-                                <Link to="/Eat-Healthy/RecipeSearch/view">
+                                <Link to={`/Eat-Healthy/RecipeSearch/view/${ele.recipe.uri.split('_')[1]}`}>
                                     <RecipeCard label={ele.recipe.label} 
                                         thumbnail={ele.recipe.images.SMALL.url} 
                                         time={ele.recipe.totalTime} 

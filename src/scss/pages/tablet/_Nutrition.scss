@@ -1,0 +1,215 @@
+@include tablet() {
+    .page-nutrition {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button {
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .nutrition-input {
+            width: 700px;
+            padding: 20px 24px;
+            background-color: rgba(255, 255, 255, 0.7);
+
+            .nutrition-notice {
+                font-size: 20px;
+                font-weight: 500;
+                text-align: center;
+                padding: 10px 0 0;
+                color: #5A5221;
+            }
+
+            .ingredient-btn {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 40px 10px 20px;
+                border-bottom: 2px dashed rgba(#5A5333, .25);
+                h2 {
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: #5A5221;
+                }
+                .btn-group {
+                    display: flex;
+                    align-items: center;
+                    .btn-add,
+                    .btn-reset,
+                    .btn-analyze {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 36px;
+                        width: 60px;
+                        border: none;
+                        background: rgba(255, 255, 255, 0.7);
+                    }
+                    .btn-add {
+                        margin-right: 16px;
+                        font-size: 28px;
+                        color: #008A72;
+                        &:hover {
+                            color: #fff;
+                            background: #008A72;
+                        }
+                    }
+                    .btn-reset {
+                        margin-right: 16px;
+                        font-size: 28px;
+                        color: #FF6E49;
+                        &:hover {
+                            color: #fff;
+                            background: #FF6E49;
+                        }
+                    }
+                    .btn-analyze {
+                        font-size: 22px;
+                        color: #4141b8;
+                        &:hover {
+                            color: #fff;
+                            background: #4b4ba8;
+                        }
+                    }
+                }
+            }
+    
+            .ingredient-list {
+                margin-top: 20px;
+                .ingredient-item {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-bottom: 10px;
+
+                    .input-group {
+                        display: flex;
+                        .input-container {
+                            margin-right: 20px;
+                            label {
+                                margin-right: 8px;
+                                font-size: 18px;
+                                font-weight: 500;
+                                color: #5A5221;
+                            }
+                            input {
+                                height: 36px;
+                                width: 160px;
+                                padding: 5px 10px;
+                                border-radius: 6px;
+                                color: rgba(0, 0, 0, .6);
+                                box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .08);
+                                border: none;
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+                    .btn-clear,
+                    .btn-delete {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        height: 36px;
+                        width: 36px;
+                        border: none;
+                        font-size: 36px;
+                        background-color: rgba(255, 255, 255, 0.7);
+                    }
+                    .btn-clear {
+                        color: #007FA4;
+                        &:hover {
+                            color: #fff;
+                            background-color: #007FA4;
+                        }
+                    }
+                    .btn-delete {
+                        color: #D87093;
+                        &:hover {
+                            color: #fff;
+                            background-color: #D87093;
+                        }
+                    }
+                }
+            }
+        }
+
+        
+        .nutrition-result {
+            width: 700px;
+            padding: 60px 0px 40px;
+            margin: 30px 0;
+            background-color: #fff;
+            clip-path: polygon(0 0, 6% 2%, 14% 0, 21% 4%, 29% 3%, 34% 0, 42% 0, 47% 4%, 54% 4%, 57% 0, 64% 2%, 70% 1%, 78% 0, 84% 3%, 95% 0, 100% 5%, 100% 98%, 94% 100%, 86% 96%, 80% 100%, 75% 96%, 68% 96%, 62% 99%, 55% 100%, 48% 96%, 40% 97%, 35% 100%, 30% 96%, 23% 99%, 16% 96%, 10% 97%, 4% 100%, 0 96%);            
+
+            .nodata-sign {
+                font-size: 36px;
+                font-weight: 600;
+                text-align: center;
+                padding: 50px 0;
+                color: rgba(0, 0, 0, .2);
+            }
+
+            h2 {
+                font-size: 40px;
+                font-weight: 700;
+                text-align: center;
+                margin: 40px 0 20px;
+                padding-bottom: 20px;
+                color: rgba(0, 0, 0, .7);
+                border-bottom: 2px dashed rgba(#5A5333, .5);
+            }
+            
+            .result {
+                padding: 20px 60px 80px;
+                line-height: 1.2;
+                font-family: 'Didact Gothic', sans-serif;
+                
+                dl {
+                    padding: 10px 40px;
+                    border-top: 1px solid rgba(#282517, .2);
+                    dt {
+                        font-size: 24px;
+                        font-weight: 500;
+                        padding-top: 10px;
+                        &:first-child {
+                            font-weight: 700;
+                        }
+                    }
+                    dd {
+                        text-align: right;
+                        font-size: 20px;
+                        line-height: 1.5;
+                    }
+                    
+                    &.calories {
+                        display: flex;
+                        justify-content: space-between;
+                        border: none;
+                        dt {
+                            p:last-child {
+                                font-size: 48px;
+                            }
+                        }
+                        dd {
+                            font-size: 72px;
+                            font-weight: 500;
+                        }
+                    }
+                    &.daily-value {
+                        text-align: right;
+                    }
+                    &:last-child {
+                        border-bottom: 1px solid rgba(#282517, .2);
+                    }
+                }
+            }
+        }
+    }
+
+}

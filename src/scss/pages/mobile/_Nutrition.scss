@@ -1,0 +1,197 @@
+@include mobile() {
+    .page-nutrition {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button {
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .nutrition-input {
+            width: 320px;
+            padding: 12px 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+
+            .nutrition-notice {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.4;
+                text-align: center;
+                padding: 4px 20px 0;
+                color: #5A5221;
+            }
+
+            .ingredient-btn {
+                padding: 40px 10px 10px;
+                border-bottom: 1.8px solid rgba(#5A5333, .3);
+                h2 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #5A5221;
+                }
+                .btn-group {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-top: 20px;
+                    .btn-add,
+                    .btn-reset,
+                    .btn-analyze {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 30px;
+                        width: 70px;
+                        border: none;
+                        background: rgba(255, 255, 255, 0.7);
+                    }
+                    .btn-add {
+                        font-size: 26px;
+                        color: #008A72;
+                    }
+                    .btn-reset {
+                        font-size: 26px;
+                        color: #FF6E49;
+                    }
+                    .btn-analyze {
+                        font-size: 20px;
+                        color: #4141b8;
+                    }
+                }
+            }
+    
+            .ingredient-list {
+                margin-top: 20px;
+                .ingredient-item {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    padding-bottom: 10px;
+                    border-bottom: 1.8px dashed rgba(#5A5333, .25);
+                    .input-group {
+                        padding: 0 8px;
+                        .input-container {
+                            margin-bottom: 8px;
+                            label {
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #5A5221;
+                            }
+                            input {
+                                height: 30px;
+                                width: 160px;
+                                padding: 5px 10px;
+                                margin-top: 4px;
+                                border-radius: 6px;
+                                color: rgba(0, 0, 0, .6);
+                                box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .08);
+                                border: none;
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+                    .btn-clear,
+                    .btn-delete {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        height: 36px;
+                        width: 36px;
+                        border: none;
+                        font-size: 36px;
+                        background-color: rgba(255, 255, 255, 0.7);
+                    }
+                    .btn-clear {
+                        margin-right: 10px;
+                        // color: #007FA4;
+                        color: #fff;
+                        background-color: #007FA4;
+                    }
+                    .btn-delete {
+                        // color: #D87093;
+                        color: #fff;
+                        background-color: #D87093;
+                    }
+                }
+            }
+        }
+
+        
+        .nutrition-result {
+            width: 320px;
+            padding: 20px 0px;
+            margin: 16px 0 50px;
+            background-color: #fff;
+            clip-path: polygon(0% 1%, 5% 0, 12% 1%, 19% 0%, 25% 2%, 31% 1%, 36% 0%, 43% 3%, 49% 0%, 59% 2%, 68% 0%, 79% 2%, 84% 4%, 88% 0%, 94% 3%, 100% 1%, 100% 98%, 95% 100%, 88% 98%, 81% 98%, 74% 99%, 67% 98%, 58% 99%, 48% 99%, 40% 98%, 36% 99%, 28% 100%, 19% 97%, 12% 100%, 6% 98%, 0 97%);            .nodata-sign {
+                font-size: 24px;
+                font-weight: 600;
+                text-align: center;
+                padding: 50px 0;
+                color: rgba(0, 0, 0, .2);
+            }
+
+            h2 {
+                font-size: 26px;
+                font-weight: 700;
+                text-align: center;
+                margin: 40px 0 20px;
+                padding-bottom: 20px;
+                color: rgba(0, 0, 0, .7);
+                border-bottom: 1.4px dashed rgba(#5A5333, .5);
+            }
+            
+            .result {
+                padding: 0px 30px 20px;
+                line-height: 1.2;
+                font-family: 'Didact Gothic', sans-serif;
+                
+                dl {
+                    padding: 4px 10px;
+                    border-top: 1px solid rgba(#282517, .2);
+                    dt {
+                        font-size: 16px;
+                        font-weight: 500;
+                        padding-top: 8px;
+                        &:first-child {
+                            font-weight: 700;
+                        }
+                    }
+                    dd {
+                        text-align: right;
+                        font-size: 16px;
+                        line-height: 1.5;
+                    }
+                    
+                    &.calories {
+                        display: flex;
+                        justify-content: space-between;
+                        border: none;
+                        dt {
+                            p:last-child {
+                                font-size: 20px;
+                            }
+                        }
+                        dd {
+                            font-size: 20px;
+                            font-weight: 500;
+                        }
+                    }
+                    &.daily-value {
+                        text-align: right;
+                    }
+                    &:last-child {
+                        border-bottom: 1px solid rgba(#282517, .2);
+                    }
+                }
+            }
+        }
+    }
+
+}

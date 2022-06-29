@@ -22,7 +22,7 @@ function RecipePopup () {
             try {
                 let response = await axios.get(url);
                 setData(response.data.recipe)
-                console.log(response.data)
+                // console.log(response.data)
             } catch (error) {
                 alert("Error!");
                 console.error(error);
@@ -34,7 +34,27 @@ function RecipePopup () {
 
     const [save, setSave] = useState(false)
     const saveRecipe = () => {
-        setSave(!save)
+        setSave(!save);
+        if (!save) {
+            axios.post('https://4fd65212-d94c-4f4f-9512-1e10fae6f2b3.mock.pstmn.io/saverecipe', {
+                    "key": FOOD_ID,
+                    "label": data.label,
+                    "date": new Date()
+                })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        // axios.get('https://4fd65212-d94c-4f4f-9512-1e10fae6f2b3.mock.pstmn.io/saverecipe')
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     }
 
     return (

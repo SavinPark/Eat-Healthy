@@ -37,9 +37,6 @@ function NutritionAnalysis() {
         })
     }
 
-    const mathRound = (number) => {
-        return  Math.round(( number + Number.EPSILON) * 100) / 100
-    }
 
     const addIngre = () => {
         setIngreKey([...ingreKey, ingreKey[ingreKey.length-1] + 1]);
@@ -58,6 +55,11 @@ function NutritionAnalysis() {
         setIngreKey([1]);
         setResult([]);
         setExistData(false);
+    }
+
+
+    const mathRound = (number) => {
+        return  Math.round(( number + Number.EPSILON) * 100) / 100
     }
 
     return (
@@ -103,7 +105,6 @@ function NutritionAnalysis() {
                 </ul>
             </div>
             <div className="nutrition-result">
-                {/* <h2>Carrot Cake</h2> */}
                 <h2>Nutrition Facts</h2>
                 { !existData && (<p className="nodata-sign">No Data</p>)}
                 { existData && (

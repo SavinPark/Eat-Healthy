@@ -15,89 +15,83 @@ function RecipePopup () {
     const FOOD_ID = window.location.pathname.split('/')[4];
     const APP_ID = process.env.REACT_APP_EDAMAM_API_ID_RECIPE;
     const APP_KEY = process.env.REACT_APP_EDAMAM_API_KEY_RECIPE;
+    const url=`https://api.edamam.com/api/recipes/v2/${FOOD_ID}?type=public&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
-    const getRecipe = async () => {
-        let url=`https://api.edamam.com/api/recipes/v2/${FOOD_ID}?type=public&app_id=${APP_ID}&app_key=${APP_KEY}`;
-        try {
-            let response = await axios.get(url);
-            // console.log(response.data.recipe);
-            return response.data.recipe
-        } catch (error) {
-            alert("Error!");
-            console.error(error);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                let response = await axios.get(url);
+                setData(response.data.recipe)
+                console.log(response.data)
+            } catch (error) {
+                alert("Error!");
+                console.error(error);
+            }
         }
-    }
+        fetchData();
+        return () => { setData([]) }
+    }, []);
 
-    const getLabel = () => {
-        getRecipe().then((recipe) => {
-            console.log(recipe.label)
-            return recipe.label
-        })
-    }
-
-    const goBack = () => {
-        // location
-        console.log('back');
+    const [save, setSave] = useState(false)
+    const saveRecipe = () => {
+        setSave(!save)
     }
 
     return (
         <div className='recipe-popup'>
             <Link to="/Eat-Healthy/RecipeSearch">
-                <IoIosClose className='btn-close' onClick={goBack}/>
+                <IoIosClose className='btn-close'/>
             </Link>
             <div className='popup-inner popup-left'>
-                <h2>{ getLabel() }</h2>
+                <h2>{ data.label }</h2>
                 <div className='popup-img'>
-                    {/* <img src={data.images.REGULAR.url} alt={data.label} /> */}
+                    {data.images && (<img src={data.images.REGULAR.url} alt={data.label} />)}
                 </div>
                 <div className="star">
-                    <BsStar />
-                    <BsStarFill />
+                    <button onClick={saveRecipe}>
+                        {save ? <BsStarFill color="#ffd427"/> : <BsStar color="rgba(0, 0, 0, .2)"/>}
+                    </button>
                 </div>
-                <div className='info'>
-                    <p><ImAlarm /> 25 minutes</p>
-                    <p><BiDish /> Desserts</p>
-                    <p><ImMap2 /> Eastern Europe</p>
-                    <p><ImFire /> 1483 Kcal</p>
-                </div>
+                <ul className='info'>
+                    <li><ImAlarm className="popup-icon"/> {data.totalTime ? data.totalTime : 0} minutes</li>
+                    <li><BiDish className="popup-icon"/> {data.dishType ? data.dishType[0] : '-'}</li>
+                    <li><ImMap2 className="popup-icon"/> {data.cuisineType ? data.cuisineType[0] : '-'}</li>
+                    <li><ImFire className="popup-icon"/> {data.calories ? Math.round(data.calories) : 0} Kcal</li>
+                </ul>
             </div>
             <div className='popup-inner popup-right'>
-                <div className='recipe-link'>
-                    <h3><IoIosIceCream />Recipe Link <IoIosLink /></h3>
+                <div className='right-inner recipe-link'>
+                    <h3><ImGlass className="popup-icon" />Recipe Link</h3>
+                    {data.shareAs ? <a href={data.shareAs}><IoIosLink className="popup-icon" />Click here!</a> : <h3><IoIosIceCream />No Link</h3>}
                 </div>
-                <hr />
-                <div className='ingredient'>
-                    <h3><ImGlass />Ingredients</h3>
+                <div className='right-inner meal-type'>
+                    <h3><ImGlass className="popup-icon" />Meal Type</h3>
                     <ul>
-                        <li>sweetened condensed milk : 39 grams</li>
-                        <li>water : 2.5 cups</li>
-                        <li>butter : 4 tablespoon</li>
+                        {data.mealType && data.mealType.map((ele, idx) => { 
+                            return (<li key={idx}>{ele}</li>)
+                        })}
                     </ul>
                 </div>
-                <hr />
-                <div className='diets'>
-                    <h3><GiCook />Diet Labels</h3>
+                <div className='right-inner ingredient'>
+                    <h3><ImGlass className="popup-icon" />Ingredients</h3>
+                    <ul>
+                        { data.ingredients && data.ingredients.map((ele, idx) => { 
+                            return (<li key={idx}>{ele.food} : {ele.quantity} {ele.measure==='<unit>' ? '' : ele.measure}</li>)
+                        })}
+                    </ul>
+                </div>
+                <div className='right-inner diets'>
+                    <h3><ImGlass className="popup-icon" />Diet Labels</h3>
                     <ul className='diet-labels'>
-                        <li># Balanced</li>
-                        <li># High-Fiber</li>
-                        <li># High-Protein</li>
-                        <li># Low-Carb</li>
-                        <li># Low-Fat</li>
-                        <li># Low-Sodium</li>
+                        { data.dietLabels && data.dietLabels.map((ele, idx) => { return (<li key={idx}>#{ele}</li>)})}
                     </ul>
                 </div>
-                <hr />
-                <div className='nutrients'>
-                    <h3><GiCook />Total Nutrients</h3>
-                    <ul className="nutrients">
-                        <li>Calcium 230g</li>
-                        <li>Calcium 230g</li>
-                        <li>Calcium 230g</li>
-                        <li>Calcium 230g</li>
+                <div className='right-inner health'>
+                    <h3><ImGlass className="popup-icon"/>Health Labels</h3>
+                    <ul className='health-labels'>
+                        { data.healthLabels && data.healthLabels.map((ele, idx) => { return (<li key={idx}>#{ele}</li>)})}
                     </ul>
                 </div>
-                <hr />
-                <div className='info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quisquam reiciendis corporis odio ea consectetur officia explicabo error magni nobis, ad recusandae laudantium adipisci voluptas molestiae debitis, voluptatum, unde libero.</div>
             </div>
             {/* {recipe.label}
             {recipe.ingredients} */}

@@ -48,13 +48,9 @@ function RecipeSearch() {
     const getRecipes = async () => {
         let url = getURL();
         try {
-            let response = await axios.get(url, {
-                headers : {
-                    'Access-Control-Allow-Origin': '*'
-                }
-            });
+            let response = await axios.get(url);
             setRecipe(response.data.hits);
-            console.log(response.data.hits);
+            // console.log(response.data.hits);
         } catch (error) {
             alert("Error!");
             console.error(error);

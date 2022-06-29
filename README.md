@@ -21,6 +21,7 @@ Eat Healthy는 React 기반으로 구현되었으며,
 #### 🔎 API
 1. [Kakao Developers : 카카오 로그인](https://developers.kakao.com/)
 2. [Edamam : Nutrition Analysis API, Recipe Search API](https://www.edamam.com/)
+3. 사용자 메뉴는 Postman Mockup Server를 활용하였습니다.
 
 #### 🔗 Demo
 ![Eat Healthy](https://savinpark.github.io/Eat-Healthy/)

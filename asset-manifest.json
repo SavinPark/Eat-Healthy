@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Eat-Healthy/static/css/main.7d0c4a69.css",
+    "main.css": "/Eat-Healthy/static/css/main.6fed6563.css",
     "main.js": "/Eat-Healthy/static/js/main.bd074126.js",
     "static/js/787.7423e620.chunk.js": "/Eat-Healthy/static/js/787.7423e620.chunk.js",
     "static/media/home-bg.png": "/Eat-Healthy/static/media/home-bg.e37492b085bb86d04ebb.png",
@@ -11,12 +11,12 @@
     "static/media/recipe-book.png": "/Eat-Healthy/static/media/recipe-book.5b42d3c9fef76d6a0b6b.png",
     "static/media/home.png": "/Eat-Healthy/static/media/home.2ed360dd34282fb2abc7.png",
     "index.html": "/Eat-Healthy/index.html",
-    "main.7d0c4a69.css.map": "/Eat-Healthy/static/css/main.7d0c4a69.css.map",
+    "main.6fed6563.css.map": "/Eat-Healthy/static/css/main.6fed6563.css.map",
     "main.bd074126.js.map": "/Eat-Healthy/static/js/main.bd074126.js.map",
     "787.7423e620.chunk.js.map": "/Eat-Healthy/static/js/787.7423e620.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d0c4a69.css",
+    "static/css/main.6fed6563.css",
     "static/js/main.bd074126.js"
   ]
 }

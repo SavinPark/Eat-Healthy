@@ -1,5 +1,4 @@
 import React from "react";
-import bgImg from "../images/home-bg.png";
 import KakaoLogin from '../images/kakao_login_medium_wide_ko.png';
 
 function Login() {
@@ -24,7 +23,6 @@ function Login() {
                 </div>
             </div>
             <h2>EAT HEALTHY</h2>
-            <img className="bgImg" src={bgImg} alt='배경 이미지'/>
         </section>
     );
 }

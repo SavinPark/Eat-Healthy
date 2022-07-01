@@ -1,5 +1,4 @@
 import React from "react";
-import bgImg from "../images/home-bg.png";
 
 function Home() {
 

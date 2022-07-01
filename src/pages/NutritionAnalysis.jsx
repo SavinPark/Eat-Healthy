@@ -15,9 +15,9 @@ function NutritionAnalysis() {
         let ingres = '';
         ingreKey.forEach((key, idx) => {
             if (idx + 1 === ingreKey.length) {
-                ingres += $(`#quentity-${key}`).val() + $(`#unit-${key}`).val() + "%20" + $(`#ingredient-${key}`).val();
+                ingres += $(`#quantity-${key}`).val() + $(`#unit-${key}`).val() + "%20" + $(`#ingredient-${key}`).val();
             } else {
-                ingres += $(`#quentity-${key}`).val() + $(`#unit-${key}`).val() + "%20" + $(`#ingredient-${key}`).val() + "%20";
+                ingres += $(`#quantity-${key}`).val() + $(`#unit-${key}`).val() + "%20" + $(`#ingredient-${key}`).val() + "%20";
             }
         })
         return ingres;
@@ -31,6 +31,7 @@ function NutritionAnalysis() {
         .then(response => {
             setExistData(true);
             setResult(response.data);
+            console.log(response.data)
         })
         .catch(error => {
             console.error(error);
@@ -47,7 +48,7 @@ function NutritionAnalysis() {
     }
     const clear = (key) => { 
         $(`#ingredient-${key}`).val('');
-        $(`#quentity-${key}`).val('');
+        $(`#quantity-${key}`).val('');
         $(`#unit-${key}`).val('');
     }
     const reset = () => {
@@ -85,8 +86,8 @@ function NutritionAnalysis() {
                                                 placeholder="Ingredient" />
                                         </div>
                                         <div className="input-container">
-                                            <label htmlFor="quentity">Quentity</label>
-                                            <input type="number" id={`quentity-${key}`} name="quentity"
+                                            <label htmlFor="quentity">Quantity</label>
+                                            <input type="number" id={`quantity-${key}`} name="quantity"
                                                 placeholder="Quentity" />
                                         </div>
                                         <div className="input-container">

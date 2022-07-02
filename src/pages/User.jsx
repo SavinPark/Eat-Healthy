@@ -58,33 +58,39 @@ function User() {
 
     return (
         <section className='page-user'>
-            <p>MY Information</p>
-            {/* <div className="user-info">
+            {/* <p>MY Information</p> */}
+            <div className="user-container">
+                
+            <div className="user-inner user-info">
+                <div className="profile-img"></div>
                 <table>
-                    { myInfo && (
                     <tbody>
                             <tr>
                                 <th>Name</th>
-                                <td>{myInfo.name}</td>
+                                <td>myInfo.name</td>
                             </tr>
                             <tr>
                                 <th>Birth</th>
-                                <td>{myInfo.birth}</td>
+                                <td>myInfo.birth</td>
                             </tr>
                             <tr>
                                 <th>Email</th>
-                                <td>{myInfo.email}</td>
+                                <td>myInfo.email</td>
                             </tr>
                             <tr>
                                 <th>My Recipe</th>
-                                <td>{myRecipe.length}</td>
+                                <td>myRecipe.length</td>
+                            </tr>
+                            <tr>
+                                <th>Saved Recipe</th>
+                                <td>savedRecipe.length</td>
                             </tr>
                     </tbody>
-                    )}
+                    {/* )} */}
                 </table>
-            </div> */}
+            </div>
 
-            <div className="user-saveRecipe">
+            <div className="user-inner user-saveRecipe">
                 <table>
                     <thead>
                         <tr>
@@ -105,12 +111,12 @@ function User() {
                 </table>
             </div>
             
-            <div className="user-myRecipe">
+            <div className="user-inner user-myRecipe">
                 <table>
                     <thead>
                         <tr>
-                        <th>My Recipes</th>
-                        <th>date</th>
+                            <th>My Recipes</th>
+                            <th>date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,6 +130,7 @@ function User() {
                     })}
                     </tbody>
                 </table>
+            </div>
             </div>
 
         </section>

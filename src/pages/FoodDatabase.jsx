@@ -20,8 +20,11 @@ function FoodDatabase() {
         console.error(error)
     })
     return (
-        <section className='page-fooddb'>
-            <p>Food Database</p>
+        <section className='page-myrecipes'>
+            <div>
+                <p>MY RECIPES</p>
+                <p>준비 중 입니다 : )</p>
+            </div>
         </section>
     );
 }

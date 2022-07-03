@@ -1,2 +1,45 @@
 @include mobile() {
+    .page-home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .home-container {
+            width: 90vw;
+            height: 400px;
+            background-color: #fff;
+            align-items: center;
+            text-align: center;
+
+            h1 {
+                font-weight: 700;
+                font-size: 36px;
+                color: #E79A5B;
+                margin: 80px 0 60px;
+            }
+
+            p {
+                font-size: 18px;
+                color: #42493A;
+                margin-bottom: 20px;
+            }
+
+            .login,
+            .logout {
+                margin-top: 40px;
+            }
+            .logout_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 45px;
+                margin: 0 auto;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 5px;
+                background-color: #007FA4;
+            }
+        }
+    }
 }

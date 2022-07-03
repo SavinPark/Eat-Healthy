@@ -3,19 +3,17 @@
         position: relative;
         display: flex;
         width: 1160px;
-        // height: 500px;
+        min-height: 90vh;
         padding: 20px;
         margin: 50px auto;
         background-color: #fff;
         border-radius: 12px;
-        // border: 1px solid red;
         
         .btn-close {
             position: absolute;
             top: 0;
             right: 0;
             font-size: 50px;
-            // border: 1px solid red;
             cursor: pointer;
         }
 
@@ -70,19 +68,15 @@
             }
             
             &.popup-right {
+                position: relative;
                 width: 700px;
                 padding-left: 20px;
-                // border: 2px dashed purple;
 
                 .right-inner {
                     display: flex;
                     padding: 10px;
                     font-size: 18px;
                     border-bottom: 1px dashed #E79A5B;
-                    &:last-child {
-                        border: none;
-                    }
-
                     h3 {
                         width: 240px;
                         color: #42493A;
@@ -115,12 +109,14 @@
                             }
                         }
                     }
-
                 }
-
+                .edamam-badge {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    height: 45px;
+                }
             }
         }
-
-
     }
 }

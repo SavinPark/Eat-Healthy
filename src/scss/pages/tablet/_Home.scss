@@ -1,2 +1,45 @@
 @include tablet() {
+    .page-home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .home-container {
+            width: 600px;
+            height: 600px;
+            background-color: #fff;
+            align-items: center;
+            text-align: center;
+
+            h1 {
+                font-weight: 700;
+                font-size: 60px;
+                color: #E79A5B;
+                margin: 120px 0 80px;
+            }
+
+            p {
+                font-size: 24px;
+                color: #42493A;
+                margin-bottom: 20px;
+            }
+
+            .login,
+            .logout {
+                margin-top: 80px;
+            }
+            .logout_btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 45px;
+                margin: 0 auto;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 5px;
+                background-color: #007FA4;
+            }
+        }
+    }
 }

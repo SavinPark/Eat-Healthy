@@ -29,11 +29,17 @@
 // @import './pages/Login.scss';
 
 @import './pages/tablet/App';
-@import './pages/tablet/Recipes';
+@import './pages/tablet/Home';
+@import './pages/tablet/User';
+@import './pages/tablet/MyRecipes';
 @import './pages/tablet/Nutrition';
+@import './pages/tablet/Recipes';
 // @import './pages/tablet/Home';
 
 @import './pages/mobile/App';
-@import './pages/mobile/Recipes';
+@import './pages/mobile/Home';
+@import './pages/mobile/User';
+@import './pages/mobile/MyRecipes';
 @import './pages/mobile/Nutrition';
+@import './pages/mobile/Recipes';
 // @import './pages/mobile/Home';

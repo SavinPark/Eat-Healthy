@@ -43,7 +43,7 @@ function Navigation() {
                     </Link>
                 </li>
                 <li>
-                    <Link to='/Eat-Healthy/FoodDatabase'>
+                    <Link to='/Eat-Healthy/MyRecipe'>
                         <div onClick={()=>{setMenu('foodDB')}} className={menu === 'foodDB' ? "menu-btn active" : "menu-btn"}>
                             <img className="menu-icon" src={FoodIcon} alt='Food Database' />
                         </div>

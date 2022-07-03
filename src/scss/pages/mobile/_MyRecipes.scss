@@ -1,0 +1,52 @@
+@include mobile() {
+.page-myrecipes {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    .login-first {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            font-size: 24px;
+            color: #477F8F;
+            background-color: #fff;
+        }
+    }
+    // .myrecipes-container {
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: center;
+    //     align-items: center;
+    //     width: 70vw;
+    //     height: 90vh;
+    //     margin: 0 auto;
+    //     background-color: #fff;
+        
+    //     // p {
+    //     //     font-size: 28px;
+    //     //     margin: 40px;
+    //     //     // text-align: center;
+    //     //     &:first-child{
+    //     //         font-size: 40px;
+    //     //         font-weight: 600;
+    //     //         color: rgba(0, 0, 0, .35);
+    //     //     }
+    //     // }
+    //     ul {
+    //         width: 300px;
+    //         height: 300px;
+    //         border: 1px solid red;
+    //         li {
+    //             background-color: aliceblue;
+    //         }
+    //     }
+    // }
+}
+}

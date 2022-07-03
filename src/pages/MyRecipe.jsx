@@ -6,7 +6,7 @@ function MyRecipe({token, myRecipes}) {
 
     return (
         <section className='page-myrecipes'>
-            { token !== null ? 
+            { token === null ? 
                 (<div className="login-first">
                     <p>Login is required.</p>
                 </div>) :
@@ -16,7 +16,6 @@ function MyRecipe({token, myRecipes}) {
                         {recipes && recipes.map((ele) => { return (
                         <li key={ele.key}>
                             <div className="myrecipes-item">
-                                {console.log(ele.label)}
                                 <p>{ele.label}</p>
                             </div>
                         </li>

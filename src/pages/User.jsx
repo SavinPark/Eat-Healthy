@@ -21,45 +21,8 @@ function User({token, savedRecipes, myRecipes}) {
     //     return () => { setMyInfo([]) }
     // }, []);
 
-
-    // const [myRecipe, setMyRecipe] = useState([]);
-    // useEffect(() => {
-    //     async function fetchMyRecipe() {
-    //         try {
-    //             let response = await axios.get('https://56cd18cb-b7b3-4bd4-8ef2-d9cf923fe93c.mock.pstmn.io/myrecipe');
-    //         setMyRecipe(response.data);
-    //         // console.log(response);
-    //         console.log(response.data);
-    //         } catch (error) {
-    //             alert("Error!");
-    //             console.error(error);
-    //         }
-    //     }
-    //     fetchMyRecipe();
-    //     return () => { setMyRecipe([]) }
-    // }, []);
-
-    // const [saveRecipe, setSaveRecipe] = useState([]);
-    // useEffect(() => {
-    //     async function fetchSaveRecipe() {
-    //         try {
-    //             let response = await axios.get('https://4fd65212-d94c-4f4f-9512-1e10fae6f2b3.mock.pstmn.io/saverecipe');
-    //             setSaveRecipe(response.data);
-    //             // console.log(response);
-    //         console.log(response.data);
-    //         } catch (error) {
-    //             alert("Error!");
-    //             console.error(error);
-    //         }
-    //     }
-    //     fetchSaveRecipe();
-    //     return () => { setSaveRecipe([]) }
-    // }, []);
-
     return (
         <section className='page-user'>
-            {/* <p>MY Information</p> */}
-
             { token === null ? 
                 (<div className="login-first">
                     <p>Login is required.</p>
@@ -137,7 +100,6 @@ function User({token, savedRecipes, myRecipes}) {
                     </div>
                 </div>)
             }
-
         </section>
     );
 }

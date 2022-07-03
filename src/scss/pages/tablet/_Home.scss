@@ -28,6 +28,10 @@
             .logout {
                 margin-top: 80px;
             }
+            .kakao_btn,
+            .logout_btn {
+                cursor: pointer;
+            }
             .logout_btn {
                 display: flex;
                 justify-content: center;

@@ -4,13 +4,14 @@ import KakaoLogin from '../images/kakao_login_medium_wide_ko.png';
 function Home({token}) {
 
     const REST_API_KEY = process.env.REACT_APP_KAKAO_API_KEY
-    // login
-    const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao"
+    // // login
+    const REDIRECT_URI = "http://localhost:3000/oauth/callback/kakao";
+    // const REDIRECT_URI = "http://savinpark.github.io/Eat-Healthy/oauth/callback/kakao";
     const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
-
-    // logout
+    // // logout
     let LOGOUT_URL = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=http://localhost:3000/Eat-Healthy`;
+    // let LOGOUT_URL = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=http://savinpark.github.io/Eat-Healthy`;
 
     const Logout = () => {
         alert('로그아웃 하시겠습니까?')

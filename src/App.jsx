@@ -18,9 +18,6 @@ import RecipePopup from './components/RecipePopup';
 function App() {
 
   const TOKEN = window.localStorage.getItem('TOKEN');
-  useEffect(()=> {
-    console.log(window.localStorage.getItem('TOKEN'));
-  }, [])
 
   // 저장한 레시피
   const [savedRecipes, setSavedRecipes] = useState([]);
